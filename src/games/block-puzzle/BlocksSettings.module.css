@@ -1,0 +1,14 @@
+.dialog { margin: auto; width: min(460px, calc(100% - 24px)); max-height: calc(100dvh - 32px); overflow-y: auto; border: 2px solid var(--bibo-border); border-radius: var(--bibo-radius-panel); padding: 18px; background: var(--bibo-surface); color: var(--bibo-text); box-shadow: 0 16px 60px #27203d44; }
+.dialog::backdrop { background: var(--bibo-backdrop); }
+.content { display: grid; gap: 12px; }
+.content h2 { font-size: 22px; font-weight: bold; margin: 0; }
+.content button, .content select { min-height: 48px; width: 100%; padding: 10px; border: 2px solid var(--bibo-border); border-radius: 12px; background: white; color: var(--bibo-text); font: inherit; }
+.content button { cursor: pointer; }
+.content button[aria-pressed="true"] { background: var(--bibo-sun); }
+.content fieldset { display: grid; gap: 8px; min-width: 0; border: 1px solid #d7d0e5; padding: 12px; border-radius: 14px; }
+.content legend, .content label { font-weight: bold; }
+.content p { font-size: 14px; margin: 4px 0; }
+.content .done { background: var(--bibo-primary); color: white; font-weight: bold; }
+.content button, .content select { border-radius: var(--bibo-radius-control); }
+.content button { font-weight: 700; box-shadow: var(--bibo-shadow-control); }
+.content button[aria-pressed="true"] { background: var(--bibo-selected); border-color: var(--bibo-primary); }

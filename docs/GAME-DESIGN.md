@@ -1,330 +1,290 @@
-# Game Design Specification
+# GAME-DESIGN.md
 
-## Core gameplay loop
+## Independent games are the priority
 
-```text
-Choose World
-→ Enter Chapter
-→ Hear/see short mission
-→ Play one activity
-→ Receive feedback
-→ Earn progress/reward
-→ Continue or take a break
-```
+The first major product is Bibo Play, not Bibo World.
 
-## Game engines
+## Game groups
 
-V1 should support eight reusable engines.
+### Puzzle
 
-### 1. Select Game
+- Blocks
+- Jigsaw
+- Tangram
+- Parking
+- Pattern
 
-The child selects one correct option.
+### Thinking
 
-Use for:
+- Maze
+- Memory
+- Sort
 
-- animal recognition
-- color recognition
-- vocabulary
-- shape recognition
+### Construction
 
-Example:
+- Train Track
+- Tower Builder
+- Bridge Builder
+- Free Building
 
-```text
-Which animal lives in water?
+### Discovery
 
-🐟  🐶  🐔
-```
+- Physics Playground
+- Magnet Lab
+- Balance Scale
+- Sink or Float
+- Color Mixing
 
-### 2. Multi Select Game
+### Creative
 
-The child selects multiple valid items.
+- Drawing
+- Coloring
+- Music
+- Room Designer
 
-Use for:
+### Toy Play
 
-- category recognition
-- selecting all fruits
-- selecting all red objects
+- Toy Cars
+- Farm Toy
+- Dino Sandbox
+- Space Sandbox
 
-### 3. Drag & Drop Game
+## 1. Bibo Blocks
 
-The child moves an item to its correct destination.
+Modes:
 
-Use for:
+### Classic
 
-- animal → habitat
-- object → room
-- shape → matching slot
+Place pieces on grid and clear full rows/columns.
 
-Provide a tap-based alternative when practical.
+### Shape Fill
 
-### 4. Sort Game
-
-The child orders items.
-
-Use for:
-
-- small → large
-- low → high
-- morning routine
-- quantity comparison
-
-### 5. Memory Game
-
-Pairs of cards.
-
-Difficulty examples:
+Fill target silhouettes such as:
 
 ```text
-age 3: 4 cards
-age 4: 6 cards
-age 5: 8 cards
-age 6: 8–12 cards
+heart
+star
+fish
+rocket
+house
 ```
 
-### 6. Pattern Game
+### Puzzle
 
-Complete a repeating pattern.
+Finite set of pieces with a valid solution.
 
-Examples:
+Requirements:
+- no stressful countdown;
+- solvability check for generated puzzles;
+- strong placement preview;
+- touch-first drag.
+
+## 2. Jigsaw
+
+Modes:
+
+- Easy Snap
+- Classic
+- Mystery
+
+Target piece counts:
 
 ```text
-🔴 🔵 🔴 🔵 ?
+4
+6
+9
+12
+16
+24
 ```
+
+Completion should reveal the full image and optionally play a contextual sound.
+
+## 3. Memory
+
+Modes:
+
+- Picture Match
+- Shadow Match
+- Sound Match
+- Sequence Memory
+
+## 4. Tangram
+
+Modes:
+
+- Guide
+- Shadow
+- Challenge
+
+Content categories:
+
+- animals
+- vehicles
+- buildings
+- objects
+
+## 5. Maze
+
+Modes:
+
+- Classic
+- Collect
+- Key & Door
+
+Difficulty changes:
+- map size
+- path width
+- branch count
+- objectives
+
+## 6. Sort
+
+Modes:
+
+- Color Sort
+- Shape Sort
+- Category Sort
+
+## 7. Train Track
+
+Modes:
+
+- Puzzle
+- Free Build
+
+Pieces:
+
+- straight
+- curve
+- junction
+- bridge
+- station
+
+## 8. Parking
+
+Kid mode:
+- 2–4 vehicles
+
+Advanced:
+- 5–8 vehicles
+
+Every puzzle must be solvable.
+
+## 9. Pattern
+
+Patterns:
 
 ```text
-🐱 🐶 🐱 🐶 ?
+AB
+AAB
+ABB
+ABC
+ABBA
 ```
 
-### 7. Sequence Game
+Themes:
+- colors
+- animals
+- shapes
+- sounds
 
-Put actions in the correct order.
+## 10. Tower Builder
 
-Examples:
+Free play first.
 
-- washing hands
-- brushing teeth
-- getting dressed
-- planting a seed
+Challenge examples:
+- build higher than giraffe;
+- use only 5 pieces;
+- place a toy safely on top.
 
-### 8. Count Game
+## 11. Bridge Builder
 
-Count visual objects.
+Components:
+- anchor
+- beam
+- platform
 
-Examples:
+Child builds, then presses Play to test.
+
+Failure feedback remains encouraging.
+
+## 12. Physics Playground
+
+Objects:
+- ball
+- ramp
+- domino
+- spring
+- fan
+- box
+- tube
+
+Modes:
 
 ```text
-🍎 🍎 🍎
-
-2   3   4
+Build
+→ Play
+→ Reset
 ```
 
-## Age difficulty model
+Save creations locally.
 
-### Age 3
+## 13. Discovery Lab
 
-- 2–3 options
-- counting 1–5
-- obvious visual differences
-- short 2-step sequences
-- memory 4 cards
-- AB patterns
-- very little text
+Games:
 
-### Age 4
+- Magnet
+- Balance
+- Sink/Float
+- Color Mixing
 
-- 3 options
-- counting 1–10
-- basic sorting
-- 3-step sequences
-- memory 6 cards
-- AB and simple ABA patterns
+Favor experimentation before quiz-style questions.
 
-### Age 5
+## 14. Drawing
 
-- 3–4 options
-- counting 1–20
-- simple addition with objects
-- 3–4 step sequences
-- memory 8 cards
-- more complex classification
+Tools:
 
-### Age 6
+- pencil
+- brush
+- crayon
+- eraser
+- stamps
 
-- 4 options
-- simple addition/subtraction
-- longer sequences
-- memory 8–12 cards
-- advanced patterns
-- mixed-skill challenges
+Save locally.
 
-## Feedback design
+## 15. Coloring
 
-### Correct
+Themes:
+- animals
+- dinosaurs
+- vehicles
+- space
+- nature
 
-Use:
+## 16. Music
 
-- short positive phrase
-- light animation
-- optional star
+Modes:
+- Free Play
+- Repeat Rhythm
 
-Examples:
+## 17. Room Designer
 
-```text
-Tuyệt quá!
-Con làm được rồi!
-Giỏi lắm!
-```
-
-### Incorrect
-
-Use:
-
-```text
-Gần đúng rồi!
-Con thử lại nhé.
-Bibo sẽ giúp con.
-```
-
-Do not:
-
-- subtract rewards
-- lock the activity
-- show “FAILED”
-- use harsh red warning UI
-- play negative buzzer sounds
-
-## Attempts
-
-A child should be allowed to retry.
-
-If the child makes repeated mistakes:
-
-1. reduce distractors
-2. visually highlight relevant area
-3. replay instruction
-4. provide a gentle hint
-
-Do not immediately reveal the answer unless necessary.
-
-## Progression
-
-Hierarchy:
-
-```text
-World
-→ Chapter
-→ Level
-```
-
-A level unlocks the next level when completed.
-
-Do not require perfect stars to progress.
-
-## Stars
-
-Suggested scoring:
-
-```text
-Completed independently: 3 stars
-Completed after one hint: 2 stars
-Completed with several hints: 1 star
-```
-
-This must never be shown as failure.
-
-## World progression
-
-World completion can unlock:
-
-- badge
-- sticker pack
-- Bibo clothing
-- room object
-- pet
-
-## Bibo Room
-
-The Bibo Room is a light meta-game.
-
-Children can place unlocked items in a room.
-
-V1 room items:
-
+Place:
 - bed
-- plant
+- chair
 - toy
-- wall picture
+- plant
+- picture
 - rug
-- pet
 
-The room must not become more important than learning gameplay.
+Must be reusable later as Bibo World room/customization.
 
-## Movement breaks
+## 18. Toy Sandbox
 
-After several levels, suggest an activity away from the screen.
+- Cars
+- Farm
+- Dino
+- Space
 
-Examples:
-
-```text
-Jump like a rabbit 5 times.
-Stretch your arms like a tall tree.
-Walk like an elephant.
-```
-
-## Offline learning prompts
-
-Examples:
-
-After color activity:
-
-```text
-Find 3 red objects in your room.
-```
-
-After number activity:
-
-```text
-Count 5 spoons with a grown-up.
-```
-
-After sorting activity:
-
-```text
-Sort socks and shirts into two groups.
-```
-
-## Character roles
-
-### Bibo — bear
-
-Main companion.
-
-Traits:
-
-- curious
-- kind
-- encouraging
-
-### Mimo — rabbit
-
-Logic and puzzle character.
-
-### Poko — panda
-
-Numbers and counting character.
-
-### Lala — fox
-
-Language and storytelling character.
-
-## Character emotions
-
-Supported states:
-
-```text
-happy
-thinking
-celebrating
-encouraging
-sleeping
-```
+These do not need win/loss conditions.

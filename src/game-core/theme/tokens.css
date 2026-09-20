@@ -1,0 +1,23 @@
+:root {
+  --bibo-font: ui-rounded, "Arial Rounded MT Bold", system-ui, sans-serif;
+  --bibo-text: #34385e;
+  --bibo-muted: #625780;
+  --bibo-primary: #6244a0;
+  --bibo-on-primary: #ffffff;
+  --bibo-selected: #e9e0fc;
+  --bibo-border: #b6a6d8;
+  --bibo-surface: #fffdf5;
+  --bibo-white: #ffffff;
+  --bibo-soft: #f4efff;
+  --bibo-mint: #e7f5ed;
+  --bibo-mint-border: #a7cdb6;
+  --bibo-sun: #fff1b6;
+  --bibo-sun-border: #dfc66f;
+  --bibo-sun-text: #684813;
+  --bibo-backdrop: #24204099;
+  --bibo-page: radial-gradient(ellipse at 12% 5%, #fff1bd, transparent 45%), radial-gradient(ellipse at 90% 90%, #d0f3e8, transparent 55%), #e7f2ff;
+  --bibo-radius-control: 16px;
+  --bibo-radius-panel: 24px;
+  --bibo-shadow-control: 0 3px 0 #c9bceb;
+  --bibo-shadow-panel: 0 5px 0 #c9dce8, 0 12px 28px #617a8b12;
+}

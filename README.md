@@ -1,55 +1,77 @@
-# Bibo World — Starter Pack for Codex / Antigravity
+# Bibo Play V2 Starter Pack
 
-Bibo World is an educational web game for children ages 3–6.
+This package is the single project brief for Codex / Antigravity.
 
-This starter pack defines the product rules, educational principles, technical architecture, UI rules, content rules, and implementation roadmap so an AI coding agent can build the project consistently.
+## What to do
 
-## Recommended stack
+1. Copy all files into the repository root.
+2. Keep `AGENTS.md` at the root.
+3. Keep `BIBO_MASTER_PLAN.md` at the root.
+4. Keep all supporting specifications under `/docs`.
+5. Tell the agent:
 
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- Zustand
-- LocalStorage persistence for V1
-- Static/local audio and image assets
-- Vercel deployment
+```text
+Read AGENTS.md first.
+Then read BIBO_MASTER_PLAN.md and all relevant files under /docs.
+Inspect the repository.
+Find the first incomplete task whose dependencies are satisfied.
+Implement that task only.
+Run all required validation.
+Update BIBO_MASTER_PLAN.md.
+Do not start the next task.
+```
 
-## Recommended workflow
+## Priority
 
-1. Read `AGENTS.md`
-2. Read all files under `/docs`
-3. Start with tasks in `docs/TASKS.md`
-4. Complete one task at a time
-5. Run lint, typecheck, tests, and build before marking a task complete
-6. Commit each feature separately
+The project intentionally prioritizes independent games first:
 
-## V1 scope
+1. Blocks
+2. Jigsaw
+3. Memory
+4. Tangram
+5. Maze
+6. Sort
+7. PWA + Parent basics
+8. Train Track
+9. Parking
+10. Pattern
+11. Tower / Bridge / Physics
+12. Discovery games
+13. Creative games
+14. Toy sandbox
+15. Adaptive difficulty
+16. Bibo World integration
 
-Worlds:
+The independent games are production modules, not disposable prototypes.
 
-- Forest
-- Farm
-- Colors
-- Brain Island
+## Local development
 
-Target:
+Use Node.js 24 LTS (see `.nvmrc`) and npm. Node.js 22.13+ is also supported.
 
-- 4 worlds
-- 3 chapters per world
-- 5 levels per chapter
-- 60 total levels
-- 8 reusable game engines
+```bash
+npm ci
+npm run dev
+```
 
-Do not build all 10 worlds in V1.
+Open http://localhost:3000. The initial page is a minimal Vietnamese welcome
+screen; the game hub and game modules are separate roadmap tasks.
 
-## Later worlds
+## Validation
 
-- Ocean
-- City
-- Home
-- Language
-- Numbers
-- Space
+```bash
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+npx playwright install chromium webkit
+npm run test:e2e
+```
 
-The architecture must allow these worlds to be added mostly through data, not new page logic.
+`typecheck` generates Next.js route types before checking TypeScript, including on
+a fresh checkout. `test` runs Vitest once; `test:watch` starts watch mode.
+Playwright starts the production build on port 3100 and tests Chromium and
+tablet-emulated WebKit at 320, 375, 768, and 1024px. Run `build` before `test:e2e`.
+Browser emulation does not replace physical iPad touch checks for future games.
+
+Use `npm run start` to serve a production build on port 3000. No environment
+variables, external fonts, or service credentials are required.

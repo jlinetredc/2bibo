@@ -1,287 +1,116 @@
-# Product Specification — Bibo World
+# PRODUCT.md — Bibo Play
 
-## Product summary
+## Product definition
 
-Bibo World is a browser-based educational game for children ages 3–6.
+Bibo Play is an ad-free web app containing independent games and digital toys for children approximately ages 3–7+.
 
-Children explore themed worlds with mascot characters and complete short interactive activities involving observation, language, early numeracy, memory, sequencing, classification, and problem solving.
-
-The product should feel like an adventure game, not a digital worksheet.
-
-## Target users
-
-### Primary user
-
-Children ages 3–6.
-
-### Secondary user
-
-Parents or caregivers who:
-
-- choose the child's age
-- review learning activity
-- manage sound/settings
-- receive offline activity suggestions
-
-## Product promise
-
-A child can open Bibo World and spend 5–10 minutes completing playful activities that reinforce early childhood skills without pressure, scoring anxiety, or heavy reading.
-
-## Learning model
-
-Bibo World follows a guided-play model.
-
-The child:
-
-- explores
-- touches
-- listens
-- moves objects
-- makes choices
-- retries
-- discovers patterns
-
-The system provides structure, but does not feel like a test.
-
-## Core developmental domains
-
-Bibo World should cover six broad domains.
-
-### 1. Observation & attention
-
-Examples:
-
-- find the matching object
-- spot the different item
-- identify a hidden object
-- match silhouette to object
-
-### 2. Memory
-
-Examples:
-
-- memory cards
-- remember missing object
-- remember short visual sequences
-
-### 3. Logic & problem solving
-
-Examples:
-
-- patterns
-- classification
-- simple maze
-- sorting
-- sequence ordering
-
-### 4. Language
-
-Examples:
-
-- listen and choose
-- image vocabulary
-- initial sounds
-- basic letter recognition
-- optional English vocabulary
-
-### 5. Early numeracy
-
-Examples:
-
-- quantities
-- counting
-- more/less
-- size comparison
-- simple addition using objects
-
-### 6. Hand-eye coordination
-
-Examples:
-
-- drag and drop
-- matching
-- object placement
-- simple puzzles
-
-## Product worlds
-
-The long-term product contains ten worlds.
-
-### 1. Forest
-
-Focus:
-
-- animals
-- observation
-- classification
-- sound recognition
-
-### 2. Farm
-
-Focus:
-
-- counting
-- size
-- food
-- animals
-- quantity
-
-### 3. Ocean
-
-Focus:
-
-- memory
-- animal recognition
-- sorting
-- size comparison
-
-### 4. City
-
-Focus:
-
-- transportation
-- public places
-- jobs
-- road safety
-
-### 5. Home
-
-Focus:
-
-- routines
-- self-care
-- organization
-- sequencing
-
-### 6. Colors
-
-Focus:
-
-- colors
-- shapes
-- visual matching
-- creativity
-
-### 7. Language
-
-Focus:
-
-- listening
-- vocabulary
-- sounds
-- letters
-
-### 8. Numbers
-
-Focus:
-
-- quantity
-- number recognition
-- more/less
-- simple arithmetic
-
-### 9. Brain Island
-
-Focus:
-
-- memory
-- logic
-- patterns
-- problem solving
-
-### 10. Space
-
-Focus:
-
-- mixed review
-- multi-skill challenges
-- advanced progression
-
-## V1 scope
-
-Only build:
-
-- Forest
-- Farm
-- Colors
-- Brain Island
-
-Each world:
-
-- 3 chapters
-- 5 levels per chapter
-
-Total:
-
-- 4 worlds
-- 12 chapters
-- 60 levels
-
-## Session length
-
-Ideal child session:
+Primary experience:
 
 ```text
-5–10 minutes
+Open on iPad
+→ choose profile
+→ choose game
+→ play immediately
 ```
 
-After several activities, the experience should suggest a movement or offline break.
+The experience should feel like a children's game app, not a school website.
 
-Examples:
+## Main product goals
 
-- “Nhảy như thỏ 5 lần!”
-- “Tìm 3 đồ vật màu đỏ trong phòng.”
-- “Đếm 5 chiếc thìa cùng bố mẹ.”
+1. Give children a safe alternative to ad-heavy tablet games.
+2. Build games with enough depth to replay regularly.
+3. Favor logic, creativity, spatial reasoning, experimentation, memory and free play.
+4. Keep sessions calm and interruption-free.
+5. Make the game library reusable inside Bibo World later.
 
-## Reward philosophy
+## Product layers
 
-Rewards support motivation but should not dominate the learning experience.
+```text
+Bibo Play
+→ independent games
 
-Allowed:
+Bibo World
+→ simulation, quests and stories using Bibo Play modules
 
-- stars
-- stickers
-- pets
-- clothes
-- room decorations
-- badges
+Parent Area
+→ profiles, permissions, play-time and activity summary
+```
 
-Avoid:
+## Current priority
 
+Bibo Play first.
+
+Do not prioritize Bibo World until the core game library is stable.
+
+## V1 definition
+
+Bibo Play V1 contains:
+
+- Bibo Blocks
+- Jigsaw
+- Memory
+- Tangram
+- Maze
+- Sort
+- local child profiles
+- local persistence
+- sound controls
+- installable PWA
+- parent basics
+- no ads
+
+## Alpha definition
+
+Alpha contains:
+
+- Blocks
+- Jigsaw
+- Memory
+
+These three games must be genuinely playable by a child on iPad.
+
+## Product philosophy
+
+The goal is not:
+
+```text
+maximize screen time
+```
+
+The goal is:
+
+```text
+make each session enjoyable, calm and worthwhile
+```
+
+## Monetization exclusions for current product
+
+Do not add:
+
+- child-facing ads
+- rewarded video
+- virtual-currency purchases
+- paid energy
 - loot boxes
-- random paid rewards
-- social ranking
-- daily streak pressure
-- reward loss
-- competitive scoring
+- forced subscription prompts in the child flow
 
-## Parent experience
+## Session philosophy
 
-The parent dashboard should show learning activity in descriptive terms.
+Games should work in short sessions but not punish the child for leaving.
+
+No mandatory streak system.
+
+No “come back in 8 hours” mechanics.
+
+## Future Bibo World
+
+Later, Bibo World will use these same game modules inside contextual quests.
 
 Examples:
 
-- Counting 1–5: practicing
-- Color recognition: confident
-- Pattern recognition: developing
-
-Do not display:
-
-- IQ
-- intelligence score
-- class ranking
-- “bad learner”
-- percentile claims
-
-## V1 success criteria
-
-V1 is successful when:
-
-1. A parent can create a local child profile.
-2. A child can enter a world.
-3. A child can complete multiple activity types.
-4. Progress survives page refresh.
-5. Difficulty adjusts based on selected age.
-6. Child can earn stars/rewards.
-7. Parent can view basic activity history.
-8. The app works comfortably on phones and tablets.
+```text
+Lost Bunny → Maze
+Broken Bridge → Bridge Builder
+Build Railway → Train Track
+Build House → Tangram / Construction
+```

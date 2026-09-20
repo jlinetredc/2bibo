@@ -1,0 +1,10 @@
+.score { grid-column: 1 / -1; position: relative; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; min-height: 40px; color: var(--bibo-sun-text); }
+.score h2 { margin: 0; font-size: 18px; font-weight: 700; color: var(--bibo-text); }
+.score p { margin: 0 0 0 auto; padding: 6px 14px; border-radius: 20px; background: var(--bibo-sun); font-size: 18px; font-weight: 700; white-space: nowrap; }
+.score small { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.celebration { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; z-index: 2; background: var(--bibo-sun); border-radius: var(--bibo-radius-control); }
+.celebration strong { animation: welcome 450ms ease-out; font-size: 22px; }
+.celebration i { position: absolute; left: 50%; top: 50%; color: #a75e00; font-style: normal; animation: stars 1500ms ease-out forwards; }
+@keyframes welcome { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes stars { from { opacity: 1; transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-15px); } to { opacity: 0; transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-65px); } }
+@media (prefers-reduced-motion: reduce) { .celebration strong, .celebration i { animation: none; } .celebration i { display: none; } }

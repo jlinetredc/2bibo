@@ -1,144 +1,186 @@
-# Bibo World Agent Rules
+# AGENTS.md — Bibo Play V2
 
-You are working on Bibo World, an educational web game for children ages 3–6.
+This file contains mandatory operating rules for Codex / Antigravity.
 
-Read this file before modifying the project.
+## Read order
 
-## Mission
+Before any implementation:
 
-Build a safe, calm, playful, touch-first learning experience where children learn through guided play rather than tests.
+1. Read this file.
+2. Read `BIBO_MASTER_PLAN.md`.
+3. Read relevant files under `/docs`.
+4. Inspect the current repository.
+5. Implement only the first incomplete task whose dependencies are satisfied.
 
-The product should optimize for meaningful 5–10 minute learning sessions, not maximum screen time.
+## Scope discipline
 
-## Core product principles
+- One task per run unless the user explicitly asks otherwise.
+- Do not start future tasks.
+- Do not build Bibo World early.
+- Do not implement unrelated refactors.
+- Preserve working code unless a change is necessary.
+- Avoid speculative abstractions that are not required by the current task.
 
-1. Child-first UI.
-2. Touch-first interaction.
-3. Instructions must be short and easy to understand.
-4. Audio support must be available for important instructions.
-5. Incorrect answers must never be punished.
-6. Never subtract stars, lives, streaks, or rewards for mistakes.
-7. Never use competitive leaderboards.
-8. Avoid stressful timers.
-9. Do not use dark patterns.
-10. Avoid ads in the child experience.
-11. Do not make educational performance claims such as IQ scores.
-12. Encourage breaks and offline activities.
-13. Mobile and tablet are higher priority than desktop.
+## Product mission
+
+Build an ad-free collection of polished independent games and digital toys for children, primarily for iPad/tablet use.
+
+Later, reuse those same games inside Bibo World.
+
+## Child experience rules
+
+Never add:
+
+- ads
+- paid gems
+- loot boxes
+- forced login
+- leaderboards
+- streak pressure
+- harsh failure screens
+- countdown timers by default
+- “watch ad to continue”
+- unnecessary child data collection
+
+Prefer:
+
+- touch-first interactions
+- large controls
+- short text
+- visual instructions
+- retry without punishment
+- gentle feedback
+- offline/local-first behavior
 
 ## Architecture rules
 
-### Game content is data
+### Game registry
 
-Game engines must not contain hard-coded level questions.
+The game hub must derive game entries from a central registry.
+
+Do not hardcode all game cards in a page component.
+
+### Game modules
+
+Each major game belongs under:
+
+```text
+src/games/<game-id>/
+```
+
+Game domain logic should be separated from UI when practical.
+
+### Shared core
+
+Shared systems belong under:
+
+```text
+src/game-core/
+```
+
+Examples:
+
+- game registry
+- game shell
+- audio
+- input
+- persistence
+- difficulty
+- asset helpers
+
+### Storage
+
+Game components must not directly scatter `localStorage` or IndexedDB calls.
+
+Use the shared persistence abstraction.
+
+### Reusability
+
+Major games should be designed so they can later run in:
+
+```text
+standalone mode
+```
+
+and:
+
+```text
+quest mode
+```
+
+inside Bibo World.
+
+Do not fork duplicate implementations later.
+
+## Touch / iPad requirements
+
+- Pointer Events for custom dragging.
+- Do not disable page scrolling globally.
+- Disable scroll only in active draggable regions when needed.
+- Avoid hover-only controls.
+- Primary controls should generally be >= 48×48 CSS px.
+- Test portrait and landscape.
+- Prevent accidental text selection during drag.
+- Handle pointer cancellation cleanly.
+
+## Accessibility
+
+- Use semantic buttons.
+- Add visible focus states.
+- Respect `prefers-reduced-motion`.
+- Do not rely on color alone.
+- Add accessible labels for icon-only controls.
+- Provide non-drag alternatives where practical.
+
+## Feedback
 
 Correct:
 
-```ts
-<GameRenderer level={levelData} />
+```text
+Tuyệt quá!
+Con làm được rồi!
+Giỏi lắm!
 ```
 
 Incorrect:
 
-```ts
-if (levelId === "forest-001") {
-  return <Question>Which animal lives in a tree?</Question>
-}
+```text
+Thử lại nhé!
+Gần đúng rồi!
 ```
 
-### Reusable engines
-
-Place reusable game logic under:
+Never use:
 
 ```text
-src/games/
+FAILED
+WRONG
+GAME OVER!
 ```
 
-Place level/world content under:
+as aggressive child-facing failure states.
 
-```text
-src/data/
-```
+## Child privacy
 
-Place shared UI under:
+Allowed local profile fields:
 
-```text
-src/components/
-```
+- nickname
+- age band
+- avatar
+- local progress
+- preferences
 
-### Age adaptation
+Do not request:
 
-Age determines presentation and difficulty.
+- exact birth date
+- school
+- address
+- precise location
+- child email
+- child phone
 
-Supported child ages:
+## Validation
 
-```text
-3
-4
-5
-6
-```
-
-Never duplicate entire game engines just to support a different age.
-
-## V1 storage
-
-Use LocalStorage through a storage abstraction.
-
-Do not couple components directly to `window.localStorage`.
-
-Use a storage service so V2 can later migrate to Supabase/Firebase without rewriting game UI.
-
-## Accessibility
-
-- Minimum primary touch target: 48×48 px.
-- Do not require hover.
-- Use semantic buttons.
-- Use visible focus states.
-- Use accessible labels for icons.
-- Do not rely on color alone for correctness.
-- Respect `prefers-reduced-motion`.
-- Audio must have replay controls.
-- Avoid rapid flashing.
-
-## Child-friendly feedback
-
-Correct answer:
-
-- Positive animation
-- Short praise
-- Star reward when appropriate
-
-Examples:
-
-- “Tuyệt quá!”
-- “Con làm được rồi!”
-- “Giỏi lắm!”
-
-Incorrect answer:
-
-- Do not show red failure screens.
-- Do not play harsh sounds.
-- Allow retry.
-
-Examples:
-
-- “Gần đúng rồi!”
-- “Con thử lại nhé.”
-- “Bibo sẽ giúp con.”
-
-## Performance
-
-- Use optimized images.
-- Prefer WebP/AVIF.
-- Lazy-load non-critical audio and imagery.
-- Avoid autoplaying large media.
-- Avoid unnecessary dependencies.
-- Avoid loading assets for locked worlds.
-
-## Testing requirements
-
-Before completing a task, run:
+Before marking an implementation task complete, run when available:
 
 ```bash
 npm run lint
@@ -147,9 +189,7 @@ npm run test
 npm run build
 ```
 
-If the project does not yet contain a requested script, create a reasonable script or document why it is not available.
-
-Test responsive layouts at minimum:
+Gameplay work should also be checked at:
 
 ```text
 320px
@@ -158,55 +198,25 @@ Test responsive layouts at minimum:
 1024px
 ```
 
-Test core game flows:
+and touch behavior should be manually reviewed.
 
-- correct answer
-- incorrect answer
-- retry
-- next level
-- refresh
-- progress persistence
+## Task completion
 
-## Git discipline
+After finishing a task:
 
-Prefer small, feature-focused commits.
+1. Mark its checkbox complete in `BIBO_MASTER_PLAN.md`.
+2. Append a short line to `CHANGELOG / AGENT LOG`.
+3. Record consequential architecture decisions under `ADR / TECHNICAL DECISIONS`.
+4. Stop.
+5. Report what was completed.
+6. State the next task without implementing it.
 
-Examples:
+<!-- BEGIN:nextjs-agent-rules -->
 
-```text
-feat: initialize bibo world foundation
-feat: add child profile flow
-feat: implement select game engine
-feat: add forest world content
-feat: add reward persistence
-```
+# This is NOT the Next.js you know
 
-Do not combine unrelated work into a single commit.
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-## Scope control
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
-Do not implement later roadmap features while working on an earlier task unless required by architecture.
-
-Avoid premature backend work.
-
-V1 does not require:
-
-- authentication
-- online accounts
-- social features
-- global leaderboards
-- multiplayer
-- payments
-- cloud sync
-
-## Definition of done
-
-A feature is done only when:
-
-1. It works on touch devices.
-2. It works after browser refresh.
-3. It follows the data-driven architecture.
-4. It contains no hardcoded level-specific logic in the engine.
-5. It has child-friendly feedback.
-6. It is responsive.
-7. Lint/typecheck/build pass.
+<!-- END:nextjs-agent-rules -->

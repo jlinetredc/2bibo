@@ -1,0 +1,31 @@
+.page { max-width: 760px; margin: 0 auto; padding: 20px; }
+.page h1 { font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 700; margin: 12px 0; }
+.page h2 { font-size: 1.4rem; font-weight: 700; }
+.back { display: inline-flex; align-items: center; min-height: 48px; font-weight: 700; }
+.eyebrow { margin-top: 24px; font-size: 0.8rem; letter-spacing: 0.18em; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 24px 0 0; padding: 0; list-style: none; }
+.card { border: 2px solid var(--bibo-border); border-radius: var(--bibo-radius-panel); background: white; overflow: hidden; }
+.choose { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; padding: 20px 12px; overflow-wrap: anywhere; }
+.choose[aria-pressed="true"] { background: var(--bibo-selected); }
+.choose:focus-visible { outline-offset: -5px; }
+.avatar { font-size: 3rem; }
+.edit { width: 100%; min-height: 48px; border-top: 1px solid var(--bibo-border); }
+.button { min-height: 52px; min-width: 52px; padding: 10px 20px; border: 2px solid var(--bibo-primary); border-radius: var(--bibo-radius-control); background: #fff; font-weight: 700; }
+.page button { cursor: pointer; touch-action: manipulation; }
+.page button:disabled { cursor: default; opacity: 0.6; }
+.greeting { min-height: 32px; margin: 16px 0; font-weight: 700; font-size: 1.2rem; }
+.form { display: flex; flex-direction: column; gap: 12px; padding: 20px; margin: 24px 0; border-radius: var(--bibo-radius-panel); background: var(--bibo-mint); border: 1px solid var(--bibo-border); }
+.form > input, .form select { min-width: 0; width: 100%; min-height: 52px; border: 2px solid var(--bibo-primary); border-radius: 12px; background: white; padding: 10px; font-size: 1rem; }
+.form fieldset { min-width: 0; }
+.avatars { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.avatarOption { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 64px; border: 2px solid var(--bibo-border); border-radius: 12px; background: white; cursor: pointer; }
+.avatarOption:has(input:checked) { border-color: var(--bibo-primary); background: var(--bibo-selected); }
+.avatarOption:focus-within { outline: 3px solid var(--bibo-primary); outline-offset: 2px; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.privacy { margin-top: 24px; line-height: 1.6; color: var(--bibo-muted); }
+.page h1, .page h2 { color: var(--bibo-primary); }
+.back { padding: 8px 16px; border: 2px solid var(--bibo-border); border-radius: var(--bibo-radius-control); background: var(--bibo-white); box-shadow: var(--bibo-shadow-control); }
+.card, .form { box-shadow: var(--bibo-shadow-panel); }
+.button { border-color: var(--bibo-border); box-shadow: var(--bibo-shadow-control); color: var(--bibo-text); }
+.avatar { display: grid; place-items: center; width: 80px; height: 80px; background: var(--bibo-sun); border-radius: var(--bibo-radius-panel); }
+.edit { font-weight: 700; color: var(--bibo-primary); background: var(--bibo-soft); }

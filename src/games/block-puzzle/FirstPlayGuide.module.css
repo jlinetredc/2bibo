@@ -1,0 +1,7 @@
+.guide { position: absolute; inset: 0; pointer-events: none; }
+.hand { position: absolute; z-index: 5; font-size: 38px; filter: drop-shadow(0 3px 3px #28204155); animation: demonstrate 3s ease-in-out 3; transform: translate(-50%, -50%); }
+.example { display: grid; gap: 2px; width: max-content; margin: 0 auto -8px; }
+.block { display: block; width: 22px; height: 22px; background: #ffd65a; border: 3px solid #fff1af; border-radius: 5px; }
+.dismiss { position: absolute; z-index: 6; bottom: 8px; left: 50%; transform: translateX(-50%); white-space: nowrap; pointer-events: auto; min-height: 48px; padding: 8px 14px; border: 2px solid var(--bibo-border); border-radius: 20px; background: var(--bibo-sun); color: var(--bibo-text); font-weight: bold; cursor: pointer; }
+@keyframes demonstrate { 0%, 15% { opacity: 1; transform: translate(-50%, -50%); } 65%, 85% { opacity: 1; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))); } 100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))); } }
+@media (prefers-reduced-motion: reduce) { .hand { animation: none; } }

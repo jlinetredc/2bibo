@@ -1,0 +1,4 @@
+.tray { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 12px 0; }
+.board { max-width: 340px; margin: auto; }
+.controls { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.controls button:disabled { opacity: .5; }
