@@ -7,7 +7,7 @@ function definition(id: string, load = vi.fn(async () => ({ default: id }))): Ga
 
 describe("game registry", () => {
   it("starts with no unimplemented game entries", () => {
-    expect(gameRegistry.list().map((game) => game.id)).toEqual(["block-puzzle", "jigsaw"]);
+    expect(gameRegistry.list().map((game) => game.id)).toEqual(["block-puzzle", "jigsaw", "counting-adventure"]);
   });
 
   it("lists games in registration order and looks them up without loading", () => {

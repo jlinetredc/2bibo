@@ -50,4 +50,6 @@ export const gameRegistry = createGameRegistry([
     load: () => import("@/games/block-puzzle/ClassicGame") },
   { id: "jigsaw", name: "Bibo Jigsaw", category: "puzzle", minAge: 3, icon: "🖼️",
     load: () => import("@/games/jigsaw/JigsawGame") },
+  { id: "counting-adventure", name: "Cùng Bibo đếm", category: "think", minAge: 3, icon: "🥕",
+    load: () => import("@/games/counting-adventure/CountingAdventure") },
 ]);

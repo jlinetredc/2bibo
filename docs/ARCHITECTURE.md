@@ -522,7 +522,11 @@ explicit errors. Presets are cloned at construction and on resolution, so neithe
 caller mutations nor game state can change subsequent results. Adapters contain
 data only; no game loader is invoked and no persistence is accessed.
 
-The application catalogue registers Jigsaw's data-only presets as of TASK 023;
+The application catalogue registers Number Match's data-only presets as of TASK
+100 (1–5/2 choices, 1–10/3 choices, 1–20/4 choices for the existing age bands).
+Its typed resolver and profile-aware round constructor are documented in
+`docs/NUMBER-MATCH.md`; no game UI or profile storage is loaded by registration.
+The catalogue also registers Jigsaw's data-only presets as of TASK 023;
 its initial age defaults and explicit advanced level are documented in
 `docs/JIGSAW-DOMAIN.md`. No game loader is imported by this registration.
 For typed game configuration, instantiate `createDifficultyService<TConfig>`;

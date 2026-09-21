@@ -248,13 +248,285 @@ Do not start unless V1 is stable and game APIs are standardized.
 - [ ] TASK 097 — Formalize standalone vs quest integration API for existing games.
 - [ ] TASK 098 — Add initial story quests: Broken Bridge, Lost Bunny, Build Railway, Build House.
 
-# EPIC 25 — Living World
+# EPIC 25 — Math & Color Lab
 
-- [ ] TASK 099 — Add Day/Night state.
-- [ ] TASK 100 — Add Weather: sun/rain/wind/snow.
-- [ ] TASK 101 — Add Farming.
-- [ ] TASK 102 — Add Cooking.
-- [ ] TASK 103 — Add Discovery Book.
+Goal: add a dedicated group of visual Math games and Color experiments that can be played independently in Bibo Play and reused later inside Bibo World quests.
+
+Principles:
+
+- visual interaction before worksheet-style equations;
+- short instructions and minimal reading;
+- no default timers;
+- no punishment for wrong answers;
+- difficulty comes from the shared Difficulty Service;
+- every game remains reusable in standalone and quest modes;
+- Math progression should move from quantity → manipulation → story context → symbols;
+- Paint mixing and Light mixing must be treated as different concepts.
+
+## GAME 27 — Number Match
+
+- [x] TASK 099 — Build Number Match core: number ↔ quantity matching with 1–5, 1–10 and 1–20 ranges.
+- [x] TASK 100 — Add Number Match difficulty presets by age band and Difficulty Service integration.
+
+Initial modes:
+
+- Number → Objects
+- Objects → Number
+
+Guidelines:
+
+- large countable objects;
+- avoid overlapping objects;
+- younger children use fewer choices;
+- no scattered age conditionals inside UI components.
+
+## GAME 28 — Counting Adventure
+
+- [x] TASK 101 — Build Counting Interaction Engine using tap/drag actions instead of question-only UI.
+- [x] TASK 102 — Add reusable Counting scenarios: Feed Animals, Fill Basket, Give Items, Collect Objects and Place Objects.
+- [x] User-requested Counting variety and frameless objects — Vary targets between rounds within age limits and remove individual white object tiles.
+- [x] User-approved Counting visual polish — Larger receivers/objects, live count feedback and gentle completion with explicit Chơi tiếp.
+
+Example interactions:
+
+```text
+Cho thỏ 3 củ cà rốt.
+Đặt 5 quả táo vào giỏ.
+Cho 4 chú cá ăn.
+```
+
+Reusable themes:
+
+- Farm
+- Animals
+- Food
+- Ocean
+- Space
+
+## GAME 29 — More or Less
+
+- [ ] TASK 103 — Build Quantity Comparison Engine for more / less / equal using visible object groups.
+- [ ] TASK 104 — Add optional > < = symbol introduction for higher difficulty only.
+
+Young children should understand the quantity visually before mathematical symbols are introduced.
+
+## GAME 30 — Number Line
+
+- [ ] TASK 105 — Build Number Line core with missing-number placement.
+- [ ] TASK 106 — Add Number Line modes: Missing Number, Before/After, Order and Jump.
+
+Jump mode example:
+
+```text
+Bibo starts on 2.
+Jump forward 3 spaces.
+Result: 5.
+```
+
+The Jump mechanic should later be reusable by addition/subtraction games.
+
+## GAME 31 — Visual Addition
+
+- [ ] TASK 107 — Build Addition with Objects using manipulable visual groups before written equations.
+- [ ] TASK 108 — Add short Addition Story Mode scenarios.
+- [ ] TASK 109 — Add age/difficulty limits for addition ranges.
+
+Suggested defaults:
+
+```text
+Age 3–4: hidden by default
+Age 4–5: total <= 5
+Age 5: total <= 10
+Age 6+: total <= 20
+```
+
+## GAME 32 — Visual Subtraction
+
+- [ ] TASK 110 — Build Subtraction with Objects using clear remove/move-away animation.
+- [ ] TASK 111 — Add Subtraction Story Mode scenarios such as animals leaving, food being eaten, toys removed or objects moving away.
+
+Keep stories neutral and playful; avoid loss/danger framing.
+
+## GAME 33 — Shape Math
+
+- [ ] TASK 112 — Build Shape Explorer for circle, square, triangle, rectangle and oval.
+- [ ] TASK 113 — Build Shape Builder where basic shapes form objects; include Free Build where practical.
+- [ ] TASK 114 — Add size/spatial concepts: big/small, long/short, tall/short, inside/outside, above/below, left/right, near/far.
+
+## GAME 34 — Balance Math
+
+- [ ] TASK 115 — Extend Balance Scale with Math Balance Mode using object quantities.
+- [ ] TASK 116 — Add Number Balance for older children, e.g. 2 + 1 = 3 and 4 = 2 + ?.
+
+Do not show written equation mode to younger profiles unless difficulty permits it.
+
+## GAME 35 — Math Maze
+
+- [ ] TASK 117 — Integrate Math challenges into the existing Maze engine; do not create a second maze engine.
+- [ ] TASK 118 — Add Math Maze challenge types: Counting Gate, Number Match Gate, More/Less Gate, Addition Gate and Shape Gate.
+
+Math Maze should consume the shared Math Question Generator introduced later in this EPIC.
+
+## GAME 36 — Little Shop
+
+- [ ] TASK 119 — Build Little Shop core using visual tokens, not real money.
+- [ ] TASK 120 — Add shopping missions such as buy N items, collect a requested set and spend within a token amount.
+- [ ] TASK 121 — Add advanced arithmetic shopping mode for older profiles.
+
+Rules:
+
+- no real currency;
+- no purchasing mechanics;
+- no gambling/reward economy;
+- visual tokens before currency symbols.
+
+# COLOR LAB
+
+## GAME 37 — Paint Mixing Lab
+
+- [ ] TASK 122 — Build Paint Mixing core with direct pour/drop/mix interactions.
+- [ ] TASK 123 — Add Free Mixing Mode with Undo, Clear and Save Color.
+
+Initial paint rules:
+
+```text
+Red + Yellow → Orange
+Blue + Yellow → Green
+Red + Blue → Purple
+```
+
+Do not implement this as a multiple-choice-only game.
+
+## GAME 38 — Make the Color
+
+- [ ] TASK 124 — Build Target Color Challenge where the child mixes toward a target color.
+- [ ] TASK 125 — Build local My Color Book for discovered paint recipes.
+
+For younger children, use forgiving canonical colors rather than exact RGB scoring.
+
+## GAME 39 — Light Lab
+
+- [ ] TASK 126 — Build RGB additive Light Mixing for higher difficulty profiles.
+- [ ] TASK 127 — Add Paint vs Light interactive comparison.
+
+Required additive-light examples:
+
+```text
+Red light + Green light → Yellow
+Green light + Blue light → Cyan
+Red light + Blue light → Magenta
+Red + Green + Blue light → White
+```
+
+The UI must clearly communicate that this is LIGHT, not paint.
+
+## GAME 40 — Shade Lab
+
+- [ ] TASK 128 — Build Light & Dark exploration: color + white → lighter; color + black → darker.
+- [ ] TASK 129 — Build Arrange the Shades from light → dark with difficulty-based visual distance.
+
+## GAME 41 — Color Detective
+
+- [ ] TASK 130 — Build Find the Color scenes with age-appropriate visual density.
+- [ ] TASK 131 — Build Match the Shade with difficulty-controlled shade similarity.
+
+Do not rely on color alone for critical UI controls outside the color-learning task itself.
+
+# Shared Math System
+
+- [ ] TASK 132 — Define shared Math Content Model with skills: counting, number-recognition, quantity, comparison, ordering, addition, subtraction, shape and spatial.
+- [ ] TASK 133 — Extend Difficulty Service with a Math Difficulty Profile.
+- [ ] TASK 134 — Build shared Math Question Generator with validated answers and reasonable distractors.
+- [ ] TASK 135 — Emit local Math performance evidence for the Adaptive Layer without exposing raw skill scores to children.
+
+Suggested difficulty config shape:
+
+```ts
+{
+  numberMax: 10,
+  optionCount: 3,
+  additionMax: 5,
+  subtractionMax: 5,
+  allowSymbols: false,
+  allowWrittenEquation: false
+}
+```
+
+# Shared Color System
+
+- [ ] TASK 136 — Build shared Color Model/utilities for named colors, RGB, HSL, lightness, paint recipes and light-mixing metadata.
+- [ ] TASK 137 — Add local persistence for discovered paint colors, favorites and saved mixtures through the shared persistence layer.
+
+# EPIC 25 Quality Gate
+
+- [ ] TASK 138 — Run Math & Color Lab QA and close the EPIC only after all checks pass.
+
+Math checks:
+
+- age 3 profiles are not pushed into advanced addition/subtraction;
+- object groups are easy to count;
+- symbols are introduced only when appropriate;
+- challenges remain understandable visually;
+- distractors are reasonable and questions are unambiguous.
+
+Color checks:
+
+- Paint Mixing and Light Mixing are clearly distinguished;
+- color rendering is consistent;
+- Color Detective scenes are not visually overloaded;
+- shade challenges match difficulty;
+- science behavior is curated accurately.
+
+Device checks:
+
+```text
+320px
+375px
+768px
+1024px
+iPad Safari portrait
+iPad Safari landscape
+touch
+```
+
+Validation:
+
+```text
+npm run lint
+npm run typecheck
+npm run test
+npm run build
+```
+
+**EPIC 25 release result:**
+
+```text
+Number Match
+Counting Adventure
+More or Less
+Number Line
+Visual Addition
+Visual Subtraction
+Shape Math
+Balance Math
+Math Maze
+Little Shop
+Paint Mixing Lab
+Make the Color
+Light Lab
+Shade Lab
+Color Detective
+```
+
+These games remain standalone Bibo Play modules and may later be invoked by Bibo World quests.
+
+# EPIC 26 — Living World
+
+- [ ] TASK 139 — Add Day/Night state.
+- [ ] TASK 140 — Add Weather: sun/rain/wind/snow.
+- [ ] TASK 141 — Add Farming.
+- [ ] TASK 142 — Add Cooking.
+- [ ] TASK 143 — Add Discovery Book.
 
 **Release 3.0 foundation**
 
@@ -279,35 +551,77 @@ Before calling a game stable:
 
 # ADR / TECHNICAL DECISIONS
 
+2026-09-21 — Counting visual polish: reuse supplied destination symbols as large receivers; keep decoration in the presentation layer, pointer-transparent and reduced-motion-aware. Preserve visible placed objects and require explicit continuation. No domain, difficulty, storage or audio change.
+
+2026-09-21 — Counting variety follow-up: extend the existing age adapter with numberMax 5/10/20. Deterministically cycle targets on new rounds, shell restart and activity changes; supply target+2 objects capped at 20. Keep active rounds stable and quest replay unchanged. Transparent object buttons preserve semantic controls, >=48px targets and focus outlines. No adaptive progression or new roadmap game.
+
+ADR-102 — 2026-09-21
+
+Decision: Author five immutable scenario templates with stable IDs, localized instructions, object symbols/labels and optional destination symbols. Reuse CountingGame without scenario branches. Register a data-only Counting difficulty adapter (target/supply 3/5, 5/7, 8/10 across existing bands), resolve profiles at host entry, and expose the scenarios through a lazy registry entry and shared GameShell route.
+
+Reason: Children can play the authored contexts from the hub while quest hosts reuse the same data/component and completion contract. Preserve the selected activity on shell replay, allow freely changing activities, and keep running-round configuration stable.
+
+Impact: /play/counting-adventure is playable; no new engine, future quest system, adaptive evidence, audio, persistence migration or reward economy. Uses system emoji and shared styling/input; profile loading uses existing persistence and never overwrites unreadable records. Activity/progress are session-only; refresh starts a new rabbit round at the saved age band. See docs/COUNTING-INTERACTION.md.
+
+ADR-101 — 2026-09-21
+
+Decision: Keep Counting domain transitions separate from a reusable standalone/quest component. Objects have stable identities and move between source/destination by tap, keyboard or shared captured Pointer Events. Confirm exact quantity explicitly, allow under/over-count correction, and emit completion once per round. Store only mounted-session state; scenarios remain data supplied by the host.
+
+Impact: Shared theme/input reused; no global scroll lock, storage, age conditionals, game hub entry or authored scenario pack. Outside release/cancellation changes no count. See docs/COUNTING-INTERACTION.md for contracts and the WebKit environment limitation.
+
+ADR-100 — 2026-09-21
+
+Decision: Register a data-only Number Match difficulty adapter in the existing shared service. Map 3–4 to numberMax 5/2 choices, 5–6 to 10/3, and 7+ to 20/4. Guests use the existing youngest-band fallback. Add a typed resolver and new-round constructor that enforces the preset before delegating to the core.
+
+Reason: Centralized age policy keeps conditionals out of future UI and gives younger children fewer choices. Resolve only for new rounds; reject mismatched authored content instead of silently trimming away an answer. Both directions and hosting contexts share the same policy.
+
+Impact: No profile migration, UI/route, adaptive evidence, shared Math generator or persistence change. Defaults are initial product choices, not physical-device/child validation. Existing Jigsaw presets remain unchanged. See docs/NUMBER-MATCH.md.
+
+ADR-099 — 2026-09-21
+
+Decision: Keep Number Match core under src/games/number-match/domain as pure immutable transitions with explicit content/configuration. Support both number-to-objects and objects-to-number with inclusive 1–5, 1–10 and 1–20 ranges. Validate distinct choice IDs/quantities and exactly one correct answer. Expose number faces or ordered logical object groups without UI, artwork, storage or age dependencies.
+
+Reason: Standalone and future quest hosts can share matching/retry/reset behavior. Authored choice order is deterministic; wrong answers keep all options available and completed states ignore stale input. Avoid duplicating the future shared Math generator or starting age presets before TASK 100.
+
+Impact: Domain-only increment, following the existing core-first task pattern. No new playable route or hub card, profile policy, persistence, rewards, audio or World implementation. TASK 100 owns age-band presets and Difficulty Service integration; TASK 132–135 remain untouched. See docs/NUMBER-MATCH.md for contracts and validation boundaries.
+
 2026-09-20 — No-scroll clarification supersedes the prior vertical-scroll allowance. Jigsaw measures available board height with ResizeObserver and refits on resize; preserve artwork aspect and minimum target size. At >=1000px, 16–24-piece trays use twelve columns/two rows. Move tidy into the guide toolbar to reclaim the tray header row. No global overflow lock; the picture library and small/zoomed screens retain normal accessibility scrolling.
 
 2026-09-20 — Jigsaw tablet column layout: supersedes the previous side-by-side/no-scroll tablet requirement at the user's request. Cap the single play column at 800px and use 4/6/8 tray columns depending on piece count at widths >=700px. Retain normalized rearranged positions and natural document scrolling; no storage/domain changes.
 
 Count-aware Jigsaw tray sizing — 2026-09-20
+
 - Use two columns for four pieces, three for 6–12 and four for 16–24. Match CSS tray height/size to stable initial count, preserving normalized rearrangement and preventing remaining pieces from resizing after each placement. Four-piece controls are 128px on tablet/112px on phone; 6–12 are 88px/80px. Dense 16–24 layouts retain 64px controls.
 
 Interlocking Jigsaw presentation — 2026-09-20
+
 - Retain rectangular source anchors and the existing snap/domain contract. Generate deterministic cubic SVG outlines from shared edge lengths/polarities, with flat image borders; clip the full source image so tabs carry adjacent image content. Board/drag SVGs overflow their source anchors; fitted tray viewBoxes include tab margins within existing large touch controls.
 - Keep the rectangular renderer option for exact source-raster fixtures and other consumers. Visible shape rendering is enabled explicitly in gameplay. No new art assets or reference-image import is needed for this geometry change.
 
 Jigsaw per-piece feedback — 2026-09-20
+
 - Mount one 900ms, pointer-transparent celebration for each committed placement, keyed by piece ID and positioned using source-image percentages. This includes the final piece and follows board resizing. Timer cleanup runs on unmount; replay clears effects. Reduced motion uses a static star. No scoring/domain/persistence changes or new audio.
 
 Bibo shared visual theme — 2026-09-20
+
 - Centralize visual tokens in src/game-core/theme/tokens.css and import them through global CSS. All existing route/component styles consume shared palette and typography values. Move the Jigsaw-specific header appearance into GameShell so both games use one implementation.
 - Keep domain logic, persistence, child data and pointer behavior unchanged. Game artwork/tile colors remain game-specific; controls use common semantic colors and system fonts without remote assets. Global disabled styling must not fade completed puzzle artwork.
 
 Jigsaw scroll reduction — 2026-09-20
+
 - Use side-by-side gameplay from 700px in both orientations, with CSS-controlled tray row spacing and viewport-aware board width. Preserve normalized piece positions, 64px tablet piece controls and target minimums; do not lock global scrolling or clip content on smaller/zoomed displays.
 
 Jigsaw child app presentation — 2026-09-20
+
 - Scope shell appearance through the Jigsaw scene; leave other games and shared shell behavior unchanged. Use native progress semantics and visual theme thumbnails without changing puzzle state, drag coordinates or storage.
 
 Jigsaw library/scatter follow-up — 2026-09-20
+
 - Keep free mat coordinates as normalized, bounded presentation state separate from puzzle placement/domain logic and persistence. Cancellation leaves positions unchanged; “Xếp gọn” restores stable initial slots. Every remaining piece stays mounted, with tap/keyboard alternatives.
 - Stage picture/count choices inside a native modal thumbnail library; closing discards changes and restores focus. Six additional local generated WebP scenes reuse the existing image pipeline; provenance and prompts are in docs/JIGSAW-CHARACTER-ART.md.
 
 Jigsaw character/count follow-up — 2026-09-20
+
 - Preserve the existing image/snap engine and register generated character artwork as local WebP metadata. Original illustrations remain in the generator output directory; shipped assets preserve the entire 1448×1086 composition. Provenance/prompts are in docs/JIGSAW-CHARACTER-ART.md.
 - User-selected counts explicitly choose the matching existing difficulty level only when starting a new puzzle. This does not change profile data or add automatic progression. The guide toggle and tray pagination are transient UI state.
 - Six-piece tray pages and a landscape side tray shorten drag reach. Visible numbers are replaced by image fragments, while semantic labels and non-drag alternatives remain. No deployment or new roadmap task is included.
@@ -365,11 +679,13 @@ Alternatives considered: Embedding image crop geometry in domain state, mutable 
 Impact: No Jigsaw route, registry entry, assets, storage or input handlers yet. A 256-piece technical allocation guard is not an age preset. See docs/JIGSAW-DOMAIN.md for the API contract. TASK 021 is next and remains unstarted.
 
 Blocks baby experience — 2026-09-20
+
 - New local sessions use a 5×5 Classic board and a deterministic single/domino catalogue. The generator stores optional pieceSet="baby"; absent means the unchanged version-1 catalogue, preserving old saved games. Restart retains the current catalogue. Optional tutorialSeen is false only for new sessions; legacy records skip unsolicited onboarding. Both fields use existing shared progress storage.
 - Parent settings use the existing ParentGate inside a native modal dialog. Each opening needs a fresh gate; no persistent unlock. Hints/audio apply immediately, while difficulty/size drafts replace Classic only through explicit new-board action. No account or child information is requested.
 - Touch/pen aiming is lifted 56 CSS px above the finger. Shared Blocks hit-testing permits at most 14px edge tolerance, checks the full legal footprint/mask and clips candidates to the visible board. Tap rules remain exact. The visual first-play demonstration never mutates gameplay and dismisses on the first play-area interaction; reduced-motion disables its animation.
 
 Blocks options — 2026-09-20
+
 - Keep optional hintsEnabled in the shared version-1 progress record (missing means enabled); accept supported square Classic sizes 5/6/8 while retaining existing saves. Board dimensions remain the source of truth for placement and restart. Larger boards scroll locally on narrow screens to preserve 48px cells; changing size requires an explicit new-board action.
 
 Blocks scoring follow-up — 2026-09-19
@@ -541,6 +857,39 @@ Impact: Switching modes/reloading now resumes each mode; restart persists a clea
 
 # CHANGELOG / AGENT LOG
 
+2026-09-21 — User-approved Counting visual polish completed
+
+- Enlarged receivers and frameless object controls, removed plus/return marks, emphasized live count, added gentle completion reaction and explicit Chơi tiếp. Preserved tap/drag/keyboard and quest replay.
+- Lint/typecheck/build and 301 unit tests passed. All six targeted Chromium cases passed their assertions, covering 320/375/768/1024px, rotation, touch cancellation and continuation. Direct browser drag/tap/completion review passed. Windows test-server cleanup required separate handling; physical iPad/WebKit signoff remains pending. No deployment or TASK 103 work.
+
+2026-09-21 — User-requested Counting variety and frameless objects completed
+
+- Replaced fixed repeat quantities with age-bounded round variety and a “Lượt mới” action; changing activities also varies the target. Removed white backgrounds/borders from individual objects and enlarged their symbols, preserving touch/keyboard/drag behavior.
+- Lint/typecheck/build and 300 unit/component tests passed. Chromium checks cover all five scenarios, four responsive widths, varying targets, transparent borderless objects, profile defaults, retry/replay and pointer/touch cancellation. WebKit remains limited by the previously documented missing ngtcp2.dll. TASK 103 was not started; no deployment.
+
+2026-09-21 — TASK 102 completed (explicit next-task request after TASK 101 implementation)
+
+- Added Feed Animals, Fill Basket, Give Items, Collect Objects and Place Objects as data across Animals/Farm/Food/Ocean/Space. Added scenario chooser, quest-compatible host, shared age presets and lazy hub/route integration. Shell replay retains the activity; profile read failure falls back without overwriting data.
+- Lint/typecheck/build and all 296 unit/component tests passed. Eight distinct Chromium browser cases passed across the targeted runs (Counting engine, scenarios, hub and profile handling), covering all five scenarios at 320/375/768/1024px, portrait/landscape, native touch/cancellation, keyboard, retries, refresh and profile defaults. Reviewed phone/tablet captures and manually dragged/completed a rabbit round and switched to basket in the running app.
+- WebKit remains unavailable because its installed runtime reports missing ngtcp2.dll; no WebKit/physical iPad claim. Local production restarted on port 3002. No Vercel deployment. TASK 103 remains unchecked and was not implemented.
+
+2026-09-21 — TASK 101 completed
+
+- Added Counting domain/component, isolated interactive fixture and unit/browser tests. Supports tap/drag transfer and return, exact-count confirmation, encouraging retry and replay in standalone/quest modes.
+- Lint/typecheck/build and 289 tests across 34 files passed. Three Chromium browser cases passed: four responsive widths, portrait/landscape, keyboard/tap, 20 drags, cancellation/outside release, native touch without scrolling or text selection, retry, replay and refresh. Direct browser review confirmed transfer, retry and completion. WebKit downloaded but could not launch due to missing ngtcp2.dll; WebKit and physical iPad signoff remain pending. No deployment or scenarios included in TASK 101.
+
+2026-09-21 — TASK 100 completed (EPIC 25)
+
+- Added immutable Number Match age-band presets, central Difficulty Service registration, typed resolution and a profile-aware round constructor enforcing quantity range and exact choice count. Documented contracts and ADR-100; preserved existing plan edits and unrelated task statuses.
+- npm run lint, npm run typecheck, npm run test (281 passed across 32 files, including seven new difficulty tests) and npm run build passed. Covered every target in both directions for each band, guest fallback, mutation isolation, invalid content/profile rejection, running-round stability and Jigsaw registration regression.
+- Data/domain-only integration: no changed UI, touch or persistence surface, so responsive/manual touch/browser checks are not applicable. No physical iPad claim or deployment. TASK 101 remains unchecked and was not implemented.
+
+2026-09-21 — TASK 099 completed (user-directed start at EPIC 25)
+
+- Added Number Match core for both matching directions and all three ranges, immutable validated content/presentation, non-punitive retry, completion protection and reset. Added API/scope documentation and ADR-099. Preserved the user's existing master-plan edits and all earlier incomplete-task statuses.
+- Installed dependencies with npm ci from the unchanged lockfile. npm run lint, npm run typecheck, npm run test (274 passed across 31 files, including nine new Number Match tests) and npm run build passed on Node.js 26.4.0. Tests exercise every target in both directions, unique answers/object counts, malformed and sparse content, retry/reset and mutation isolation.
+- Responsive 320/375/768/1024px, portrait/landscape, manual touch and persistence checks are not applicable to this pure domain increment; no UI/input/storage behavior changed and no physical-device claim is made. No deployment. TASK 100 remains unchecked and was not implemented.
+
 Append one short entry per completed task:
 
 ```text
@@ -550,120 +899,140 @@ YYYY-MM-DD — TASK XXX completed
 ```
 
 2026-09-19 — TASK 001 completed
+
 - Initialized Next.js App Router, strict TypeScript, Tailwind, ESLint, Vitest, Playwright, npm scripts/lockfile, and a minimal Vietnamese welcome page. Added development instructions; preserved existing documentation edits.
 - Validation on Node.js 24.19.0: lint, typecheck, test (1), build, and test:e2e (2) passed. Chromium and tablet-emulated WebKit checked 320/375/768/1024px, including portrait and landscape; npm install audit reported zero vulnerabilities. Playwright required execution outside the sandbox for Windows server cleanup. Physical touch and persistence checks are not applicable to this non-interactive scaffold.
 
 ---
 
 2026-09-19 — TASK 002 completed
+
 - Added all remaining core folders from docs/ARCHITECTURE.md, the GameMode/BaseGameProps type-only contract, and folder responsibility/import guidance. No games or runtime services implemented.
 - Validation on Node.js 24.19.0: npm run lint, npm run typecheck, npm run test (1 passed), and npm run build all passed. Touch, responsive, and persistence manual checks are not applicable to this folder/type/documentation-only change. TASK 003 was not started.
 
 ---
 
 2026-09-19 — TASK 003 completed
+
 - Added the central immutable Game Registry with deferred loading, ID validation, lookup/list APIs, and 11 registry tests covering duplicates, lazy loading, unknown IDs, retry, and mutation isolation. Documented the API; no game or UI implementation added.
 - Validation on Node.js 24.19.0: npm run lint, npm run typecheck, npm run test (12 passed across 2 files), and npm run build all passed. Manual touch/responsive/persistence checks are not applicable to this non-UI registry change. TASK 004 was not started.
 
 ---
 
 2026-09-19 — TASK 004 completed
+
 - Added reusable GameShell, scoped responsive styles, callback/mute unit tests, and isolated browser fixture/tests. Documented host integration and safe-area ownership.
 - Validation: lint, typecheck, 14 unit tests, build, and 6 Chromium/WebKit browser tests passed on Node.js 24. Browser checks covered 320/375/768/1024px, portrait/landscape, touch emulation, keyboard focus, restart, mute state, reduced motion, and scrolling. In-app browser visual/interaction review confirmed controls and callbacks. Physical iPad/notch behavior was not tested; persistence and actual audio playback belong to later tasks. TASK 005 was not started.
 
 ---
 
 2026-09-19 — TASK 005 completed
+
 - Added shared Pointer Events drag lifecycle, capture/cancellation/cleanup, scoped scroll/selection prevention, 10 unit tests, and an isolated pointer interaction fixture with browser tests. Documented host responsibilities and API.
 - Validation on Node.js 24: lint, typecheck, 24 unit tests, build, and 9 browser tests passed; 1 Chromium-CDP-only touch test skipped on WebKit. Checked 20 repeated drags, outside release, Escape/cancel recovery, quick tap, keyboard alternative, no selection, scoped scrolling, 320/375/768/1024px, and portrait/landscape. Chromium touch injection confirmed pointercancel and outside scrolling. In-app browser manual drag/release and quick activation reviewed. No physical iPad test performed; persistence does not apply. TASK 006 was not started.
 
 ---
 
 2026-09-19 — TASK 006 completed
+
 - Added Audio Manager with independent music/SFX/voice mute/volume, explicit activation, channel replacement, cancellation, cleanup, settings snapshots, and 14 audio unit tests. Added an isolated generated-WAV browser fixture demonstrating GameShell mute/restart integration.
 - Validation on Node.js 24: lint, typecheck, 38 unit tests, build, and 11 browser tests passed; 1 existing Chromium-only touch case skipped on WebKit. Audio fixture checked 320/375/768/1024px. Actual decoding/source playback and mute/replacement verified in Chromium; Windows WebKit lacks AudioContext and verified safe fallback. Physical iPad and subjective audio listening were not tested. Durable mute persistence awaits the shared storage task. TASK 007 was not started.
 
 ---
 
 2026-09-19 — TASK 007 completed
+
 - Added lazy localStorage/IndexedDB adapters, versioned envelopes, runtime validation/migrations, explicit errors, and typed audio preference load/save integration. Added 9 unit cases and 5 browser scenarios per engine covering persistence, rollback, binary data, and mute restoration.
 - Validation on Node.js 24: lint, typecheck, 47 unit tests, build, and 21 browser tests passed; 1 existing Chromium-only touch case skipped on WebKit. Reload and ArrayBuffer persistence verified on both engines; Blob succeeds on Chromium while Windows WebKit's Blob error is reported without overwriting old data. No physical iPad/manual touch check for this storage-only task. TASK 008 was not started.
 
 ---
 
 2026-09-19 — TASK 008 completed
+
 - Added multiple local profiles with nickname, age band, preset avatar, persistent selection, edit form, and shared persistence integration. Added domain and browser coverage; documented the storage contract.
 - Validation on Node.js 24: lint, typecheck, 54 unit tests, build, and 27 browser tests passed; 1 existing Chromium-only touch case skipped on WebKit. Checked 320/375/768/1024px, portrait/landscape, tablet-emulated tap, focus restoration, reload, corrupt records and failed writes. In-app browser manual form/avatar/save/reload and visual review passed. Physical iPad touch was not tested. TASK 009 was not started.
 
 ---
 
 2026-09-19 — TASK 009 completed
+
 - Added shared Difficulty Service, age-band resolution, per-game preset adapter contract, isolated configuration snapshots and 10 unit cases. Documented the API, fallback and future integration boundary.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (64 passed across 8 files), and npm run build all passed. Manual touch/responsive/persistence checks are not applicable to this pure service change; no UI, storage or gameplay was changed. TASK 010 was not started.
 
 ---
 
 2026-09-19 — TASK 010 completed
+
 - Added reusable ParentGate, scoped touch styles, untimed accessible alternative, lifecycle cancellation, focus behavior, 10 unit cases and a browser integration fixture.
 - Validation on Node.js 24: lint, typecheck, 74 unit tests, build, and 32 browser tests passed; 2 Chromium-CDP-only touch cases skipped on WebKit. Checked 320/375/768/1024px, portrait/landscape, reduced motion, early release/outside cancellation, fresh reentry, keyboard alternative, focus return and native Chromium touch cancellation/completion. In-app browser visual and alternative-entry review passed. No physical iPad test; gate intentionally has no persisted unlock state. TASK 011 was not started.
 
 ---
 
 2026-09-19 — TASK 011 completed
+
 - Added registry-derived /play hub, responsive visual cards, honest empty state, home/profile navigation, 3 unit cases and a populated browser fixture. Documented the route integration contract.
 - Validation on Node.js 24: lint, typecheck, 77 unit tests, build, and 36 browser tests passed; 2 existing Chromium-CDP-only touch cases skipped on WebKit. Checked 320/375/768/1024px, portrait/landscape, long names, scrolling, keyboard focus/activation, tablet-emulated taps, reduced motion, direct access and reload. In-app browser visual review passed for empty and populated states. Physical iPad was not tested; hub does not change stored profile data. TASK 012 was not started.
 
 ---
 
 2026-09-19 — TASK 012 completed
+
 - Added the immutable six-category catalogue, GameCategory type and runtime guard; integrated registry validation and updated synthetic fixtures. Added 15 unit cases covering all categories, invalid aliases/values, immutability and lazy loading.
 - Validation on Node.js 24: lint, typecheck, 92 unit tests, build and 36 browser regression tests passed; 2 existing Chromium-CDP-only touch cases skipped on WebKit. This data-model change adds no UI or gameplay; new manual touch/responsive/persistence checks are not applicable. TASK 013 was not started.
 
 ---
 
 2026-09-19 — TASK 013 completed
+
 - Added pure variable-grid BlockBoard types, validated immutable construction, coordinate bounds and cell reads under src/games/block-puzzle/domain. Added 28 cases for rectangular/single-axis grids, snapshots, invalid dimensions/coordinates, allocation bounds and mutation isolation.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (120 passed across 12 files), and npm run build all passed. Manual touch/responsive/persistence checks are not applicable to this pure domain task; no UI, interaction or durable storage is introduced. TASK 014 was not started.
 
 ---
 
 2026-09-19 — TASK 014 completed
+
 - Added canPlace/place/remove/clear/reset and the minimal piece-offset contract. Added 17 tests covering atomic rejection, collision/bounds, malformed shapes, identity-based removal, simultaneous clearing, reset and immutability, including all 64 occupancy patterns of a 2x3 board.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (137 passed across 13 files), and npm run build all passed. Manual touch/responsive/persistence checks are not applicable to these pure domain operations; no UI, durable storage or generator is introduced. TASK 015 was not started.
 
 ---
 
 2026-09-19 — TASK 015 completed
+
 - Added a deterministic version-1 piece generator with explicit seed/state, fixed shape catalogue, dimension filtering, sequential instance IDs and immutable outputs. Added 17 tests covering replay vectors, JSON continuation, 1200 generated pieces across six board sizes, connectivity, board placement and invalid inputs.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (154 passed across 14 files), and npm run build all passed. Manual touch/responsive/persistence checks are not applicable to this pure generator task; no UI or durable storage was added. TASK 016 was not started.
 
 ---
 
 2026-09-19 — TASK 016 completed
+
 - Added Blocks Classic domain/session, a 5×5 playable board, three-piece tray, full-row/column clearing, gentle no-move restart, basic placement preview, captured pointer drag with cancellation, and tap/keyboard placement. Registered Bibo Blocks and its lazy standalone route; documented the session contract. Updated hub tests and Vite fixture alias; made the shell keyboard test wait for rendering before Tab.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (159 passed), npm run build, and npm run test:e2e -- --workers=4 (41 passed; 3 Chromium-CDP-only cases skipped on WebKit) all passed. Browser coverage includes 320/375/768/1024px, portrait/landscape rotation, 20 repeated outside/cancel drags, touch cancellation, no drag scrolling/text selection, quick subsequent tap, refill, restart and navigation. Manually reviewed placement/drag and 320px layout in the browser; physical iPad was unavailable. Reload intentionally starts a fresh Classic board; audio/persistence await TASK 019. TASK 017 was not started.
 
 ---
 
 2026-09-19 — TASK 017 completed
+
 - Added Shape Fill for heart/star/fish/rocket/house, reusable pieces, mask-restricted placement, whole-piece undo, completion/replay, tap/keyboard/drag support and a lazy mode switch in Blocks. Extracted the existing Piece component for reuse by Classic; documented domain and host contracts.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (168 passed), npm run build and npm run test:e2e -- --workers=4 (56 passed; 4 CDP-only cases skipped on WebKit) passed. Tests cover all five masks/completions, no line clearing, invalid/overlapping placement, undo, once-per-round completion callback, selected-target restart, Classic regression, 320/375/768/1024px, rotation, reduced motion, 20 repeated drag cancellations/outside releases, native Chromium touch cancellation and no drag scrolling/text selection. Manual browser review confirmed drag, undo, target change and usable 320px scrolling/layout. Physical iPad was unavailable. Progress remains in memory as planned for TASK 019; TASK 018 was not started.
 
 ---
 
 2026-09-19 — TASK 018 completed
+
 - Added finite Blocks Puzzle mode with three solver-verified boards, exact-cover solver, independent checker, legal placement/undo, current-state hints, gentle dead-end recovery, completion/replay and lazy mode navigation. Kept touch/keyboard controls and shared Piece drag lifecycle; documented solver bounds and host contracts.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (177 passed), npm run build and full npm run test:e2e -- --workers=4 (67 passed, 5 CDP-only cases skipped on WebKit) passed. After the selected-board checkmark adjustment, lint/unit/typecheck/build and targeted Puzzle E2E (11 passed, 1 CDP-only skip) passed. Coverage includes all three boards, exhaustive small-board oracle comparison, invalid answers, unsolvable/limit distinction, dead-end undo, once-per-round callback, 320/375/768/1024px, rotation, reduced motion, repeated cancellation/outside release and native Chromium touch with no drag scrolling/text selection. Manual browser review confirmed drag, hints, undo, preview and 320px scrolling. Physical iPad was unavailable; sessions remain in memory. TASK 019 was not started.
 
 ---
 
 2026-09-19 — TASK 019 completed (implementation and available-device validation)
+
 - Added lifted/clamped drag preview, resize cancellation and tablet landscape layout; gesture-only placement/completion WAV feedback with persistent mute; per-profile/guest restoration of all Blocks modes via the shared versioned store. Added corruption/future-version protection, ordered saves, error feedback and device-validation documentation.
 - Validation on Node.js 24: lint, typecheck, 179 unit tests and build passed. Full E2E: 83 passed, five CDP-only cases skipped on WebKit. Final preview-edge adjustment: build/lint/typecheck/unit checks and 16 focused polish E2E passed. Covered 320/375/768/1024px, rotation, repeated drags/cancellation, no drag scrolling/selection, state/undo/completion restoration, restart, two-profile/guest isolation, denied writes, corrupt records and actual Chromium SFX/mute. Manual browser review confirmed landscape drag, portrait layout and progress/mute after reload. Physical iPad/real-child play and subjective volume were unavailable and are not claimed as passed; see docs/BLOCKS-VALIDATION.md. TASK 020 was not started.
 
 ---
 
 2026-09-19 — User-requested Blocks visual follow-up completed
+
 - Applied six colorful CSS tile finishes with raised faces, beveled edges and dark recessed empty cells to all three Blocks modes. Tray, lifted drag preview, placement preview and placed pieces share stable colors; Shape Fill derives its palette from the placed footprint. No gameplay or saved-data changes were needed.
 - Validation: lint, typecheck, 179 unit tests, production build and full browser suite passed (83 passed; five existing CDP-only cases skipped on WebKit). Automated checks cover 320/375/768/1024px, portrait/landscape and touch cancellation; manual browser review confirmed colored placement, drag and the 320px layout. Physical iPad was not tested. TASK 020 remains unstarted.
 - Technical decision: keep colors in the Blocks presentation layer and derive them from existing piece identity/shape; no assets, dependencies or persistence migration required.
@@ -671,23 +1040,27 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-19 — Blocks visual follow-up runtime correction
+
 - The existing production server on port 3002 had remained running across the visual rebuild. Restarted only that Bibo server against the already validated build; verified the actual localhost:3002 page now displays dark empty cells and colorful beveled tray pieces. No application code changed and no further roadmap task was started.
 
 ---
 
 2026-09-19 — User-requested Blocks scoring and celebrations completed
+
 - Added shared score display and brief non-blocking star burst/bonus feedback to all three modes, with reduced-motion support and timer cleanup. Scores survive restoration through existing state; rejected placements earn nothing and restart resets the score.
 - Validation: lint/typecheck/build passed; 181 unit tests passed. Full browser regression suite: 83 passed, five existing CDP-only skips; two additional Chromium/WebKit scoring cases passed. Covered completion bonuses/restoration, line clear/rejection/reset, reduced motion, 320/375/768/1024px, rotation and touch cancellation. Manual browser check confirmed drag adds points and completing a heart shows stars/+100. Restarted the actual production server on port 3002 and verified the new UI there. Physical iPad remains untested. TASK 020 was not started.
 
 ---
 
 2026-09-19 — User-requested Classic round-end clarity completed
+
 - Added a gentle sad face, explicit no-space heading, final score and large replay button above the board. Focus announces the result and brings it into view; exhausted-round cells are disabled and the unusable tray is hidden. Restart restores normal play and zero score. Existing no-move domain detection and persistence remain unchanged; no consequential architecture change.
 - Validation: lint, typecheck, build and 181 unit tests passed. Final isolated browser suite: 87 passed, five existing CDP-only skips. A prior overlapping test invocation caused artifact cleanup errors; the clean rerun passed. New coverage verifies restored no-move state, focus, disabled input, score preservation, keyboard/touch replay and 320/375/768/1024px layouts. Visually reviewed the 320px captured result. Physical iPad remains untested. Restarted production server on port 3002 with the new build. TASK 020 was not started.
 
 ---
 
 2026-09-20 — User-requested board-local feedback completed
+
 - Successful placements briefly show a checkmark and soft outline on the placed cells in all three modes. Classic cleared rows/columns and completed finite boards show stars on the affected cells. Decorations ignore pointer input, expire after one second, clear on undo/restart/unmount, and remain static with reduced motion.
 - Technical decision: effects are transient UI state derived from before/placed/after board snapshots. Logical placement/clearing and persistence commit immediately; no delayed gameplay or saved-data change.
 - Validation: lint/typecheck/build and 181 unit tests passed; full Chromium/WebKit suite passed (87 passed, five existing CDP-only skips), including board-local line feedback/reduced motion and existing 320/375/768/1024px, rotation and touch checks. Manual browser screenshot verified marks on the exact placed cells. Updated production server on port 3002. Physical iPad untested; TASK 020 remains unstarted.
@@ -695,6 +1068,7 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — User-requested Vercel deployment completed
+
 - Deployed the current local source to Vercel project jlinetredc-5338s-projects/2bibo. Production: https://2bibo.vercel.app (deployment dpl_8HUGKSJEHoCaTPSaTZerefqt4tCw). Ignored local Vercel metadata and excluded local build/test artifacts and environment files from uploads.
 - Validation: local lint/typecheck, 181 unit tests and build passed; Vercel production build reached READY. Anonymous HTTPS request returned 200 without authentication; browser smoke test loaded Blocks and confirmed placement/score increased to 10.
 - Deployment decision: use the existing Next.js configuration with a direct CLI source deployment. GitHub auto-link failed, so automatic deployment on push is not configured. Progress remains device/browser-local. No roadmap game task was started; TASK 020 is still next.
@@ -702,12 +1076,14 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — User-requested placement guidance completed
+
 - Added a stable nearest-legal-placement helper and non-interactive dashed/arrow guidance in all three modes. Hints respect occupancy, board edges and silhouette masks, update with the hovered origin and support tap selection too. They suggest a legal fit, not an automatic move or a guaranteed Puzzle solution; the existing solver hint remains available. No score, storage or drag/drop rules changed.
 - Validation: lint/typecheck/build, 183 unit tests and 89 Chromium/WebKit browser tests passed (five existing CDP-only skips). New tests cover whole footprints, edges/occupancy/masks and moving the hint without auto-placement. Existing responsive/touch/rotation checks passed. Manual browser review confirmed a three-cell arrow footprint matching the selected piece. TASK 020 remains unstarted.
 
 ---
 
 2026-09-20 — User-requested Blocks options and presentation completed
+
 - Added a remembered automatic-hint toggle across all Blocks modes, Classic 5×5/6×6/8×8 size selection with explicit new-board action, and a pastel scene with mascot and larger playful controls. Restart retains board size; legacy progress stays compatible.
 - Validation: lint/typecheck/build and 184 unit tests passed. Full browser run had 89 passes, five existing CDP-only skips and two landscape failures; after the landscape correction, all affected Blocks suites passed (51 passed, three CDP-only skips). Checks cover 320/375/768/1024px, rotation, persistence, accurate placement at large-board edges, touch cancellation and local board scrolling. Manual browser review confirmed the 8×8 layout and dragging into its last column. Physical iPad remains untested. TASK 020 remains unstarted.
 
@@ -716,6 +1092,7 @@ YYYY-MM-DD — TASK XXX completed
 - Published to https://2bibo.vercel.app (deployment dpl_Kc5nP61RJU7YB5T5GEt3eLg3hoMX, READY); browser smoke review confirmed the new scene, hint toggle, board-size choices and restored score.
 
 2026-09-20 — User-requested app layout completed
+
 - Removed the oversized decorative welcome block; grouped mode navigation and automatic hints into one compact toolbar. Grouped board controls within a rounded play surface, combined target title with a score badge, and shortened instructions. Kept 48px controls, larger boards, tap/drag alternatives, scores and persistence intact. Presentation-only changes; no consequential architecture decision.
 - Validation: lint, typecheck, 184 unit tests and build passed. Full Chromium/WebKit suite passed: 91 passed, five existing CDP-only skips. Windows test-server cleanup stalled; explicitly terminated only the verified test servers, after which Playwright exited successfully. Manual review covered 320/375/768/1024px, portrait/landscape and successful drag placement; physical iPad untested. TASK 020 remains unstarted.
 
@@ -724,6 +1101,7 @@ YYYY-MM-DD — TASK XXX completed
 - Deployed to https://2bibo.vercel.app (dpl_CdTMQzzkfCoiWHAXX3DhxeBz5LE6, READY); production browser review confirmed the compact toolbar and Shape Fill play surface.
 
 2026-09-20 — User-approved child experience items 1–3 completed
+
 - Added default baby sessions with single/domino pieces, protected settings for size/difficulty/hints/audio, safe explicit new-board action and unchanged legacy saves. Added lifted touch/pen aiming and local legal-drop tolerance across all Blocks modes. Added dismissible first-play/replay hand illustration with reduced-motion support and saved dismissal.
 - Validation: lint/typecheck/build and 188 unit tests passed. Final full Chromium/WebKit suite: 95 passed, five existing CDP-only skips. Covers 320/375/768/1024px, rotation, native touch cancellation/no scrolling, all three modes, parent gate/Escape/focus return, settings persistence, draft cancellation, tutorial dismissal/replay without changing progress, deterministic baby streams, old saves and nearby/far drop behavior. Manual browser review confirmed preserved legacy play, parent settings, baby board, near-edge placement, portrait layout and replay guide. Physical iPad remains untested. Suggested follow-ups 4–6 and roadmap TASK 020 were not started.
 
@@ -732,12 +1110,14 @@ YYYY-MM-DD — TASK XXX completed
 - Published to https://2bibo.vercel.app (dpl_9vV49zVdkwRpwZ7TMsLr9BwQRjKc, READY). Production browser smoke review confirmed saved mode restoration and the new parent-settings entry.
 
 2026-09-20 — TASK 020 completed
+
 - Added the pure Jigsaw domain engine: validated piece/target identities, immutable state/snapshot construction, exact legal placement, atomic rejection, removal, reset and derived completion. Added API/scope documentation and 12 domain tests, including every four-piece placement order and 4/6/9/12/16/24-piece JSON continuation fixtures.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (200 passed across 24 files) and npm run build all passed. New domain tests run in Node without a DOM. Responsive 320/375/768/1024px, manual touch and browser E2E are not applicable to this domain-only increment; no UI, route, existing gameplay or deployment changed. TASK 021 was not started.
 
 ---
 
 2026-09-20 — TASK 021 completed
+
 - Added deterministic rectangular image-piece generation with exact integer pixel coverage, validated immutable metadata and logical piece/target mappings. Added a passive accessible SVG crop renderer and isolated synthetic-image validation fixture; no production Jigsaw route or gameplay interaction yet.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (214 passed across 25 files) and npm run build passed. Targeted Chromium/WebKit image-piece E2E tests passed (2): reconstructed pixels match the source for six grids, with responsive checks at 320/375/768/1024px in portrait/landscape. Manual browser review confirmed the passive renderer; touch dragging and persistence are not applicable to this increment. Physical iPad remains untested.
 - Updated domain documentation and ADR-021. No Vercel deployment; deploy only on explicit user request. TASK 022 remains unstarted.
@@ -745,6 +1125,7 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — TASK 022 completed
+
 - Added pure Jigsaw snap preview and release operations, exact destination geometry, CSS-pixel proximity tolerance and atomic placement through the existing domain engine. Wrong/distant/duplicate drops and invalid geometry preserve state. Documented host grab-offset, resize/scroll, cancellation and non-drag integration contracts in docs/JIGSAW-DOMAIN.md; recorded ADR-022.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (226 passed across 26 files) and npm run build all passed. Twelve new Node tests cover boundary distances, wrong targets, repeated release/reset, stale definitions, malformed geometry and full-puzzle placement at scales corresponding to 320/375/768/1024px. These are mathematical geometry checks; browser layout, manual touch and persistence checks are not applicable to this pure domain increment. No physical iPad claim or Vercel deployment.
 - TASK 023 remains unstarted.
@@ -752,6 +1133,7 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — TASK 023 completed
+
 - Added four Jigsaw difficulty levels (4 / 6–9 / 9–16 / 16–24), central age-band adapter registration, typed resolution and new-puzzle generation with supported-count validation and image-oriented grids. Existing profiles and running puzzles remain unchanged. Documented the three-band/four-level mapping and ADR-023.
 - Validation on Node.js 24: npm run lint, npm run typecheck, npm run test (236 passed across 27 files) and npm run build passed. Ten new tests verify age defaults, guest behavior, mutation isolation, every level/count in both image orientations, snap completion, explicit advanced selection and invalid input. Responsive browser, manual touch and persistence checks are not applicable to this data/domain-only increment; physical iPad tuning remains unverified. No Vercel deployment.
 - TASK 024 remains unstarted.
@@ -759,6 +1141,7 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — TASK 024 completed
+
 - Added Animals, Dinosaurs, Vehicles, Ocean, Space and Farm packs with twelve original 640×480 local SVG illustrations, Vietnamese metadata, immutable lookup and themed-puzzle generation through the existing difficulty pipeline. Added asset/API documentation and ADR-024, plus an isolated visual review fixture.
 - Validation: npm run lint, npm run typecheck, npm run test (244 passed across 28 files) and npm run build passed on Node.js 24. Targeted Jigsaw Chromium/WebKit E2E: 4 passed, covering all asset decoding, 24-piece rendering, 320/375/768/1024px layouts and existing exact raster reconstruction. Visually reviewed the captured twelve-picture gallery and assembled images. No new touch handlers; manual touch/physical iPad gameplay is not claimed. No Vercel deployment.
 - TASK 025 remains unstarted.
@@ -766,6 +1149,7 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — TASK 025 implementation delivered; physical iPad check pending
+
 - Added the registry-backed /play/jigsaw host, profile-based starting counts, explicit theme-picture selection, shared pointer drag/cancellation with lifted touch preview, separate-tap/keyboard placement, image load retry and gentle full-image completion with replay. Completion callbacks fire once per round in standalone/quest hosts. Visual review found an uneven-row issue; explicit source-proportional rows and regression checks fixed it.
 - Validation: lint, typecheck, 247 unit tests across 29 files and production build passed. Final gameplay Chromium/WebKit run: 7 passed, 1 CDP-only skip; earlier hub regression (4) and Jigsaw image/crop regression (4) passed. Covered 320/375/768/1024px, control sizes, rotation with retained placements, repeated cancellation/outside release, touch injection without scrolling/selection, quick tap recovery, reduced motion, older-profile resolution and image error recovery. Reviewed captured playing/completion screens. Physical hand reach and real iPad Safari remain untested; docs/JIGSAW-VALIDATION.md records the remaining procedure.
 - TASK 025 remains unchecked because its physical one-handed test is incomplete. TASK 026 was not started. No Vercel deployment.
@@ -773,6 +1157,7 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — User-requested Jigsaw characters, visual dragging and piece counts
+
 - Added generated Doraemon and Labrador illustrations (local WebP), explicit 4/6/9/12/16/24-piece selection, image guide toggle, image-first targets, six-piece tray pagination and side-by-side landscape layout. Changed choices are applied only by starting a new puzzle; replay retains active count. Kept tap/keyboard and pointer cancellation behavior.
 - Validation: lint/typecheck/build and 249 unit tests passed. Final gameplay Chromium/WebKit run: 9 passed, 1 CDP-only skip. Image/crop browser checks separately passed 4 cases. Full 24-piece completion, draft selection, guides, pagination, four viewport widths, rotation and touch injection covered. The initial landscape drag failure was fixed by keeping the tray alongside the board; final captured UI was visually reviewed.
 - Elsa generation was rejected by the image tool (moderation_blocked); no alternative tool/retry was used, and no Elsa asset or selectable entry was added. The user was informed and asked for an image. TASK 025 physical iPad check remains pending; TASK 026 was not started. No Vercel deployment.
@@ -780,67 +1165,71 @@ YYYY-MM-DD — TASK XXX completed
 ---
 
 2026-09-20 — User-requested Jigsaw library/scatter follow-up completed
+
 - Added six new Doraemon/Labrador group scenes (eight character pictures; twenty total), compact play toolbar and thumbnail library. Replaced pagination with a freely movable piece mat, keyboard nudges and “Xếp gọn”.
 - Validation: lint/typecheck/build and 256 unit tests passed. Chromium/WebKit: 15 passed, one CDP-only WebKit skip; checked full 24-piece completion, four viewport widths, image/crop integrity, rearrangement/cancellation, touch input, draft cancellation and focus restoration. Reviewed generated artwork and local UI. Physical iPad one-handed review remains pending under TASK 025; TASK 026 was not started. No Vercel deployment.
 
 2026-09-20 — User-requested Jigsaw child app layout completed
+
 - Added a rounded scoped app header, warm toy-mat styling, visual progress, theme thumbnails and a two-column phone picture gallery. Kept existing pointer/tap/keyboard behavior and local-only preferences.
 - Lint, typecheck, 256 unit tests and build passed. Final gameplay browser run: 11 passed, one CDP-only WebKit skip, covering 320/375/768/1024px, rotation, touch/cancel, image recovery and 24-piece completion. Reviewed local tablet/phone screenshots. A run overlapping a build was discarded and repeated against a stable build. Physical iPad validation remains pending; no deployment or TASK 026 work.
 
 2026-09-20 — User-requested Jigsaw scroll reduction completed
+
 - Reduced chrome spacing, fitted all 24 pieces beside the board on portrait/landscape tablets and tightened the tablet picture library into four columns. Smaller screens retain scrolling when needed for touch accessibility.
 - Lint/typecheck/build, 256 unit tests and 11 gameplay browser tests passed (one CDP-only WebKit skip). Added no-page-scroll assertions at 768×1024 and 1024×768; retained 320/375px, rotation, touch/cancel and completion checks. Visually reviewed both tablet orientations. Real iPad one-handed validation remains pending; no deployment or next-task implementation.
 
 2026-09-20 — Project-wide visual consistency preference recorded
+
 - Documented shared palette roles, typography, button/control states, spacing and navigation requirements in docs/UI-UX.md. This is a documentation-only preference update; no claim that existing screens have all been migrated. Reviewed the documentation diff; runtime validation is not applicable. No future task started or deployment performed.
 
 2026-09-20 — Project-wide Bibo visual theme completed
+
 - Added shared theme tokens and migrated home, hub, profiles, parent gate/settings, Blocks modes/feedback and Jigsaw UI to the common pastel palette, rounded system font, control colors, radii and shadows. Both games now use the same GameShell header. Retained game art/board colors and all domain/persistence behavior.
 - Lint/typecheck/build and 256 unit tests passed. Full browser run: 106 passed, 6 CDP-only skips, 4 failures; after replacing a brittle home flex-only assertion with visible/reachable control checks and rerunning two fixture cases interrupted by reload, targeted run passed 9 with 1 skip. All 110 distinct applicable browser cases passed across the runs. Local visual review covered all five routes, profile form, parent gate/settings and picture library; 320/375/768/1024px checks found no horizontal overflow. Existing 24-piece tablet no-scroll and touch/cancellation checks passed. Physical iPad validation remains pending. No Vercel deployment or TASK 026 work.
 
 2026-09-20 — Jigsaw per-piece celebration completed
+
 - Added an eight-spark burst and star badge at every correctly placed piece, lasting 900ms with shared theme colors. Effects never intercept input; reduced motion hides sparks and keeps a static badge.
 - Lint/typecheck/build and 256 unit tests passed, including expanded wrong-placement, lifetime, final-piece and replay assertions. Gameplay browser run: 12 passed, one CDP-only skip and a timeout in the long 24-piece WebKit scenario. Increased that multi-layout/48-tap scenario budget to 60s; targeted rerun passed both browsers. All 13 applicable cases passed across runs. Verified center position, reduced motion, touch/cancel and four responsive widths; visually reviewed local feedback. No deployment. TASK 025 physical iPad validation remains pending; no next task started.
 
 2026-09-20 — User-requested interlocking Jigsaw pieces completed
+
 - Added curved complementary tabs/sockets, flat outer edges, image-aware clipping and shaped tray/drag previews. Preserved counts, snap/tap/keyboard controls, placement celebrations and tablet layout.
 - Lint/typecheck/build and 256 unit tests passed. Chromium/WebKit Jigsaw checks: 15 passed, one CDP-only skip. Browser Path2D coverage sampled every source-pixel center for all six supported grids on an uneven-sized image with zero gaps/overlaps, alongside existing exact rectangular raster checks. Gameplay covered 320/375/768/1024px, 24-piece completion, touch/cancel, reduced motion and tablet no-scroll. Visually reviewed a partially assembled 12-piece local round. Physical iPad review remains pending; no deployment or next task started.
 
 2026-09-20 — Larger Jigsaw tray pieces completed
+
 - Enlarged four-piece tablet controls from 64px to 128px and spread them in two columns. Enlarged 6–12-piece layouts with three columns; kept dense 16–24-piece tablet layout compact. Visual shape/tab proportions remain unchanged.
 - Lint/typecheck/build, 256 unit tests and 13 gameplay browser cases passed (one CDP-only WebKit skip). Updated narrow-mat non-overlap tests for new sizes; reviewed the four-piece tablet screen. Existing rotation, touch cancellation, 24-piece no-scroll and completion checks passed. No deployment or next task started; real iPad review remains pending.
 
 2026-09-20 — Công chúa picture pack completed
+
 - Copied all four user PNGs unchanged into the local princess pack, retaining both garden variants and actual image proportions. Recorded provenance in docs/JIGSAW-THEMES.md; catalogue now has nine packs and 24 pictures. Existing registry/renderer handles the new pack without architecture changes.
 - Lint/typecheck/build, 257 unit tests and two Chromium/WebKit image-gallery checks passed. Browser checks validate all 24 images and responsive 24-piece proportions. Local selection, touch placement and 320/375/768/1024px checks passed; visually reviewed the Công chúa library. No deployment or next-task work; physical iPad validation remains pending.
 
 2026-09-20 — Công chúa restoration blocked by image tool
+
 - User confirmed all four princess pictures. Inspected originals and requested faithful cleanup/sharpening with the built-in imagegen tool. No output assets were returned; an isolated diagnostic request reported HTTP 400 moderation_blocked (output stage). No further generation or alternate-tool bypass attempted after that explicit rejection. Original assets and catalogue remain unchanged; restoration remains unchecked.
 - Documentation-only status update; no runtime code changed or validation required. No deployment or next task started.
 
 2026-09-20 — Explicitly requested production deployment completed
+
 - Deployed the current workspace to the existing Vercel project 2bibo. Deployment dpl_AGQwtutKqhXPPgWXWyCGVNo8BJbV is READY and aliased to https://2bibo.vercel.app. Princess images remain the supplied originals; blocked restoration is not included.
 - Preflight lint/typecheck/build and 257 unit tests passed; Vercel production build passed. Public browser smoke checks returned HTTP 200 for home, hub, profiles and Blocks; Jigsaw loaded the Công chúa library, decoded images and accepted touch placement with no page errors. No architecture changes or next-task work. Physical iPad validation remains pending.
 
 2026-09-20 — User-requested iPad Jigsaw column layout completed
+
 - Enlarged the board above a full-width tray, with one to three tray rows on tablets. Preserved piece sizes, touch dragging, tap/keyboard alternatives, cancellation and rotation progress. Narrow phone layout remains usable.
 - Lint/typecheck/build and 263 unit tests passed. Jigsaw Chromium/WebKit: 13 passed, one CDP-only WebKit skip after making the resize check wait for responsive state. Covered 320/375/768/1024px, full 24-piece completion and touch cancellation/snapping; reviewed portrait and landscape screenshots. Vertical scrolling is intentional for the larger board; no horizontal page overflow. Physical iPad one-handed validation remains pending under TASK 025. No deployment or TASK 026 work.
 
-
-
-
-
-
-
-
-
-
-
 2026-09-20 — No-scroll iPad Jigsaw column completed
+
 - Kept board above tray; size it to the remaining height and compact the tray/controls. All six piece counts fit at 768x1024 and 1024x768 in Chromium and WebKit with visible pieces/targets >=48px. Reviewed the resulting landscape screen; existing portrait/rotation, touch cancellation/snapping and tap completion checks passed.
 - Lint/typecheck/build, 265 unit tests and 13 gameplay browser cases passed (one CDP-only WebKit skip). Rotation geometry assertions now read related bounds in one frame during refitting. Additional all-count WebKit smoke passed after waiting for local page hydration. Updated docs/JIGSAW-VALIDATION.md. No deployment; TASK 025 physical one-handed review remains pending; TASK 026 not started.
 
 2026-09-20 — Explicitly requested no-scroll production deployment completed
+
 - Vercel deployment dpl_A4nTDTP3t4iE6D6zG7j9V7hoC5j5 is READY and aliased to https://2bibo.vercel.app. Includes the column layout and viewport fitting already validated by lint/typecheck/build, 265 unit tests and 13 gameplay browser checks.
 - Vercel production build passed. Public WebKit smoke returned HTTP 200 and confirmed board above tray without scrolling at 768x1024 and 1024x768 with 24 pieces; touch placement succeeded with no page errors. No implementation or architecture changes; physical iPad review remains pending and no next task started.
 
@@ -880,4 +1269,3 @@ BLOCKERS:
 ```
 
 Do not start the next task in the same run.
-

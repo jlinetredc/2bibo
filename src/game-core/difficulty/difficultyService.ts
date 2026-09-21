@@ -1,5 +1,7 @@
 import type { ProfileInput } from "../profiles/profiles";
 import { jigsawDifficultyAdapter } from "../../games/jigsaw/domain/difficultyPresets";
+import { numberMatchDifficultyAdapter } from "../../games/number-match/domain/difficultyPresets";
+import { countingDifficultyAdapter } from "../../games/counting-adventure/domain/difficultyPresets";
 
 export type AgeBand = ProfileInput["ageBand"];
 export type DifficultyProfile = Readonly<Pick<ProfileInput, "ageBand">>;
@@ -44,5 +46,5 @@ export function createDifficultyService<TConfig = unknown>(adapters: readonly Di
 }
 
 /** Register presets only when their games are implemented and tuned. */
-export const difficultyService = createDifficultyService<unknown>([jigsawDifficultyAdapter]);
+export const difficultyService = createDifficultyService<unknown>([jigsawDifficultyAdapter, numberMatchDifficultyAdapter, countingDifficultyAdapter]);
 export const getDifficulty = difficultyService.getDifficulty;

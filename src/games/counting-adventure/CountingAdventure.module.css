@@ -1,0 +1,6 @@
+.adventure { max-width: 800px; margin: auto; }
+.choices { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 12px 0; }
+.choices button { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 56px; min-width: 120px; padding: 8px 12px; font: inherit; font-weight: bold; border: 2px solid var(--bibo-border); border-radius: var(--bibo-radius-control); background: var(--bibo-surface); color: var(--bibo-text); touch-action: manipulation; }
+.choices span { font-size: 1.5rem; }
+.choices button[aria-pressed="true"] { background: var(--bibo-selected); border-color: var(--bibo-primary); box-shadow: inset 0 -4px var(--bibo-primary); }
+.choices button:focus-visible { outline: 3px solid var(--bibo-primary); outline-offset: 3px; }

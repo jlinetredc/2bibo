@@ -1,0 +1,28 @@
+.game { max-width: 800px; margin: auto; color: var(--bibo-text); font-family: var(--bibo-font); text-align: center; }
+.game h2 { font-size: 1.35rem; overflow-wrap: anywhere; }
+.game h3 { font-size: 1rem; margin: 0 0 12px; overflow-wrap: anywhere; }
+.goal strong { font-size: 2rem; padding: 0 8px; }
+.zones { display: grid; gap: 16px; }
+.zone { padding: 16px; border: 2px solid var(--bibo-border); border-radius: var(--bibo-radius-panel); background: var(--bibo-surface); min-width: 0; }
+.destination { border-style: dashed; background: var(--bibo-mint); }
+.receiver { position: relative; display: grid; place-items: center; min-height: 112px; margin-bottom: 8px; pointer-events: none; }
+.destinationSymbol { display: block; font-size: 6rem; line-height: 1.15; }
+.celebration { position: absolute; inset: 0; display: flex; align-items: start; justify-content: center; font-size: 1.75rem; pointer-events: none; }
+.complete .destinationSymbol { animation: happy 650ms ease-out; }
+.complete { border-style: solid; }
+.items { display: grid; grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); gap: 8px; min-height: 76px; align-content: start; }
+.item { position: relative; min-height: 72px; min-width: 64px; padding: 0; font: inherit; border-radius: var(--bibo-radius-control); border: 0; background: transparent; box-shadow: none; color: var(--bibo-text); cursor: pointer; }
+.item > span { font-size: 3.25rem; line-height: 1; }
+.counter { margin: 12px 0 0; }
+.counter strong { display: inline-block; min-width: 1.5em; font-size: 1.75rem; animation: count-in 220ms ease-out; }
+.feedback { min-height: 48px; margin: 12px 0; display: grid; place-content: center; font-weight: bold; }
+.actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.actions button { min-width: 100px; min-height: 52px; padding: 10px 20px; font: inherit; font-weight: bold; background: var(--bibo-white); color: var(--bibo-text); border: 2px solid var(--bibo-border); border-radius: var(--bibo-radius-control); box-shadow: var(--bibo-shadow-control); }
+.actions .confirm { background: var(--bibo-primary); color: var(--bibo-on-primary); }
+.game button:focus-visible { outline: 3px solid var(--bibo-primary); outline-offset: 3px; }
+.game button:disabled { cursor: default; }
+.preview { position: fixed; transform: translate(-50%, -50%); font-size: 2.5rem; background: var(--bibo-selected); border-radius: 16px; padding: 8px; pointer-events: none; z-index: 20; }
+@media (min-width: 700px) { .zones { grid-template-columns: 1fr 1fr; } .items { min-height: 180px; } }
+@keyframes happy { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(-10deg) scale(1.08); } 65% { transform: rotate(8deg) scale(1.08); } }
+@keyframes count-in { from { transform: scale(.8); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .complete .destinationSymbol, .counter strong { animation: none; } }
